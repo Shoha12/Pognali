@@ -1,0 +1,40 @@
+.header {
+  background-color: rgb(81, 97, 114);
+  color: #ffffff;
+  padding: 10px 15px;
+}
+
+.header__wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  z-index: 100;
+  padding: 35px 25px;
+}
+
+.header__logo {
+  &--mobile {
+    display: block;
+
+    @media (min-width: $tablet-min) {
+      display: none;
+    }
+  }
+
+  &--desktop {
+    display: none;
+    width: 200px;
+    height: 50px;
+
+    @media (min-width: $tablet-min) {
+      display: block;
+      width: 166px;
+      height: 42px;
+    }
+
+    @media (min-width: $desktop-min) {
+      width: 200px;
+      height: 50px;
+    }
+  }
+}

@@ -1,0 +1,27 @@
+.nav__list {
+    display: flex;
+    flex-direction: row;
+    gap: 18px;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 20px;
+    text-transform: uppercase;
+    
+
+    @media (min-width: $mobile-min) and (max-width: $tablet-max) {
+        display: none;
+    }
+}
+
+.nav__menu-button {
+  cursor: pointer;
+  display: none;  
+
+  @media (min-width: $mobile-min) and (max-width: $tablet-max) {
+    display: block;
+
+    &--close-icon {
+        display: none; 
+    }
+}
+}
