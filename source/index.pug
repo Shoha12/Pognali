@@ -1,4 +1,5 @@
 extends base.pug
+include mixins/svg
 
 block title
   | Погнали?
@@ -6,4 +7,5 @@ block title
 block content
   include header
   main
-    h1 Страница для старта
+    include hero
+    include block

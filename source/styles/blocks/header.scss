@@ -5,36 +5,128 @@
 }
 
 .header__wrapper {
+    --header-brand-gap: 95px;
+
+  @media (min-width: $desktop-max) {
+    --header-brand-gap: 144px;
+  }
+
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
+  gap: var(--header-brand-gap);
   z-index: 100;
-  padding: 35px 25px;
+  padding: 38px 46px;
+
+  @media (max-width: $tablet-max) {
+    position: relative;
+    padding: 35px 26px;
+  }
+
+  @media (max-width: $mobile-max) {
+    padding: 28px 13px;
+  }
+}
+
+// Логотип — левая зона, не сжимается. Линия-тире между логотипом и навигацией
+.header__brand {
+    position: relative;
+    flex-shrink: 0;
+
+    &::after {
+      content: "";
+      position: absolute;
+      // Центрируем линию (60px) в зазоре: отступ = (gap − ширина линии) / 2
+      left: calc(100% + (var(--header-brand-gap) - 60px) / 2);
+      top: 54%;
+      transform: translateY(-50%);
+      width: 60px;
+      height: 2px;
+      background-color: $special-white;
+
+      @media (max-width: $tablet-max) {
+        display: none;
+    }
+  }
+}
+
+// Навигация — центральная зона
+.header__wrapper > .nav {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  min-width: 0;
+
+  @media (max-width: $tablet-max) {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    flex: none;
+  }
+
+  @media (max-width: $mobile-max) {
+    left: auto;
+    right: 0;
+    transform: none;
+    justify-content: flex-end;
+  }
+}
+
+.header__wrapper > .nav .section__container {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.header__wrapper > .nav .nav__wrapper {
+  display: flex;
+  justify-content: center;
 }
 
 .header__logo {
   &--mobile {
-    display: block;
+    display: none;
 
-    @media (min-width: $tablet-min) {
-      display: none;
+    @media (max-width: $mobile-max) {
+      display: block;
     }
   }
 
   &--desktop {
-    display: none;
+    display: block;
     width: 200px;
     height: 50px;
 
-    @media (min-width: $tablet-min) {
-      display: block;
+    @media (max-width: $tablet-max) {
       width: 166px;
       height: 42px;
     }
 
-    @media (min-width: $desktop-min) {
-      width: 200px;
-      height: 50px;
+    @media (max-width: $mobile-max) {
+      display: none;
     }
   }
+}
+
+// Контакты — правая зона, не сжимаются
+.header__contacts {
+  display: flex;
+  flex-direction: row;
+  gap: 7px;
+  flex-shrink: 0;
+
+  @media (max-width: $tablet-max) {
+    display: none;
+  }
+}
+
+.header__contacts-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: $special-blue-light;
 }
