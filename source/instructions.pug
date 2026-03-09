@@ -1,0 +1,14 @@
+-
+    let instructionArray = [
+        {text: "Выберети направление", number: "1"},
+        {text: "Изучите идеи путешественников", number: "2"},
+        {text: "Находите тех, кто похож на вас", number: "3"},
+        {text: "Путешествуйте вместе!", number: "4"}
+    ];
+
+div.instructions
+  ul.instructions__cards.list-reset
+    each item in instructionArray
+      li.instructions__card
+        p.instructions__text= item.text 
+        span.instructions__counter= item.number
