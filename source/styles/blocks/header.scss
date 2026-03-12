@@ -2,10 +2,36 @@
   background-color: rgb(81, 97, 114);
   color: #ffffff;
   padding: 10px 15px;
+
+  @media (max-width: $tablet-max) {
+    &:has(.nav--open) {
+      background-color: $special-white;
+      color: $basic-blue-dark;
+
+      // При открытом меню логотип в шапке скрыт — он показывается в .nav__open-header
+      .header__brand {
+        visibility: hidden;
+      }
+
+      .header__logo--mobile {
+        display: block;
+      }
+
+      .header__logo--desktop {
+        display: none;
+      }
+
+      .header__logo {
+        color: $special-blue-dark;
+      }
+
+      // Контакты при открытом меню показываются внутри навигации (.nav__contacts), не дублируем здесь
+    }
+  }
 }
 
 .header__wrapper {
-    --header-brand-gap: 95px;
+    --header-brand-gap: 90px;
 
   @media (min-width: $desktop-max) {
     --header-brand-gap: 144px;
@@ -67,7 +93,7 @@
 
   @media (max-width: $mobile-max) {
     left: auto;
-    right: 0;
+    right: 11px;
     transform: none;
     justify-content: flex-end;
   }
@@ -109,24 +135,3 @@
   }
 }
 
-// Контакты — правая зона, не сжимаются
-.header__contacts {
-  display: flex;
-  flex-direction: row;
-  gap: 7px;
-  flex-shrink: 0;
-
-  @media (max-width: $tablet-max) {
-    display: none;
-  }
-}
-
-.header__contacts-link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background-color: $special-blue-light;
-}

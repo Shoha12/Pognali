@@ -13,22 +13,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   initNavMenu: () => (/* binding */ initNavMenu)
 /* harmony export */ });
 function initNavMenu() {
+  const nav = document.querySelector('.nav');
   const navList = document.querySelector('.nav__list');
   const openButton = document.querySelector('.nav__menu-button--open-icon');
   const closeButton = document.querySelector('.nav__menu-button--close-icon');
 
-  if (!navList || !openButton || !closeButton) return;
+  if (!nav || !navList || !openButton || !closeButton) return;
 
   openButton.addEventListener('click', () => {
-    navList.style.display = 'block';
-    openButton.style.display = 'none';
-    closeButton.style.display = 'block';
+    const scrollY = window.scrollY;
+    nav.classList.add('nav--open');
+    document.body.style.setProperty('top', `-${scrollY}px`);
   });
 
   closeButton.addEventListener('click', () => {
-    navList.style.display = 'none';
-    openButton.style.display = 'block';
-    closeButton.style.display = 'none';
+    const scrollY = Math.abs(parseInt(document.body.style.top || '0', 10));
+    nav.classList.remove('nav--open');
+    document.body.style.removeProperty('top');
+    window.scrollTo(0, scrollY);
   });
 }
 

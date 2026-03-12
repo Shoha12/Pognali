@@ -1,5 +1,9 @@
 .nav__wrapper {
-    position: relative;
+  position: relative;
+}
+
+.nav__contacts {
+  display: none;
 }
 
 .nav__list {
@@ -18,15 +22,134 @@
     }
 }
 
+.nav__open-header {
+  display: none;
+}
+
 .nav__menu-button {
   cursor: pointer;
-  display: none;  
+  display: none;
+  flex-shrink: 0;
+
+  svg {
+    display: block;
+  }
 
   @media (min-width: $mobile-min) and (max-width: $tablet-max) {
     display: block;
 
     &--close-icon {
-        display: none; 
+      display: none;
     }
+  }
 }
+
+
+@media (min-width: $mobile-min) and (max-width: $tablet-max) {
+  .nav.nav--open {
+    transform: none;
+    left: auto;
+    right: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99;
+    background-color: $special-white;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+  }
+
+  .nav.nav--open .section__container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  .nav.nav--open .nav__wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nav.nav--open .nav__menu-button--open-icon {
+    display: none;
+  }
+
+  .nav.nav--open .nav__open-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-shrink: 0;
+    padding: 25px;
+    background-color: $special-white;
+    box-sizing: border-box;
+  }
+
+  .nav.nav--open .nav__open-logo {
+    color: $special-blue-dark;
+  }
+
+  .nav.nav--open .nav__menu-button--close-icon {
+    display: block;
+    flex-shrink: 0;
+
+    svg {
+      fill: $special-blue-dark;
+    }
+  }
+
+  .nav.nav--open .nav__list {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    margin: 0;
+    padding: 36px 25px;
+    gap: 0;
+    box-sizing: border-box;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 43px;
+    text-transform: uppercase;
+    color: $special-blue-dark;
+    margin-bottom: 75px;
+  }
+
+  .nav.nav--open .nav__contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    flex-shrink: 0;
+    padding: 30px 25px 40px;
+    background-color: $special-white;
+
+
+  }
+
+  .nav.nav--open .nav__contacts .contacts {
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+    flex-direction: column;
+  }
+
+  .nav.nav--open .nav__contacts .social {
+    display: block;
+  }
+
+  html:has(.nav--open),
+  body:has(.nav--open) {
+    overflow: hidden;
+    height: 100%;
+  }
+
+  body:has(.nav--open) {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    right: 0;
+  }
 }

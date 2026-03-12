@@ -1,0 +1,14 @@
+include mixins/svg
+
+.social
+  .social__wrapper
+    ul.social__list.list-reset
+      li.social__item
+        a.social__link.link-reset(href='#' aria-label='Telegram')
+          +icon('telegram', 'social__icon', 24, 24)
+      li.social__item
+        a.social__link.link-reset(href='#' aria-label='ВКонтакте')
+          +icon('vk', 'social__icon', 30, 24)
+      li.social__item
+        a.social__link.link-reset(href='#' aria-label='YouTube')
+          +icon('youtube', 'social__icon', 24, 24)

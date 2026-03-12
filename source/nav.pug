@@ -1,5 +1,6 @@
 include mixins/svg
 
+
 -
   let navArray = [
     { text: 'О сервисе', href: '#' },
@@ -11,8 +12,15 @@ nav.nav
   .section__container
     .nav__wrapper
       +icon('menu-button-open', 'nav__menu-button nav__menu-button--open-icon', 25, 11)
-      +icon('menu-button-close', 'nav__menu-button nav__menu-button--close-icon', 19, 20)
+      .nav__open-header
+        +icon('logo-mobile', 'nav__open-logo', 96, 15)
+        +icon('menu-button-close', 'nav__menu-button nav__menu-button--close-icon', 19, 20)
       ul.nav__list.list-reset
         each item in navArray
           li.nav__item
             a.nav__link.link-reset(href=item.href)= item.text
+      .nav__contacts
+        -
+          contactsPhoneIcon = 'phone-mobile-icon'
+        include contacts      
+        include social
