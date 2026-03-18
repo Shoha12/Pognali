@@ -1,0 +1,18 @@
+.companions {
+  padding-bottom: 77px;
+}
+
+.companions__wrapper {
+  display: grid;
+  grid-template-columns: 1fr 285px;
+  gap: 85px;
+}
+
+.companions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+
+

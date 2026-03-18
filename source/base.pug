@@ -1,5 +1,9 @@
 include mixins/svg
 
+- var pageBodyClass = ''
+
+block vars
+
 doctype html
 html(lang="ru")
   head
@@ -10,5 +14,5 @@ html(lang="ru")
     link(rel="preload" href="#" type="font/woff2" as="font")
     link(rel="stylesheet" href="styles/styles.css")
     script(src="scripts/index.js" defer)
-  body.page__body
+  body.page__body(class=pageBodyClass)
     block content

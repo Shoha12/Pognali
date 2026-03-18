@@ -4,6 +4,7 @@
 @import "./common/fonts.scss";
 
 /* BLOCKS */
+@import "./blocks/visually-hidden.scss";
 @import "./blocks/section__container.scss";
 @import "./blocks/title.scss";
 @import "./blocks/link-reset.scss";
@@ -15,6 +16,10 @@
 @import "./blocks/instructions.scss";
 @import "./blocks/hero.scss";
 @import "./blocks/about-service.scss";
+@import "./blocks/companions-filter.scss";
+@import "./blocks/companions.scss";
+@import "./blocks/companions-card.scss";
+@import "./blocks/companions-sidebar.scss";
 
 
 /* MIXINS */

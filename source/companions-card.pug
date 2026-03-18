@@ -1,0 +1,61 @@
+mixin companionCard(card)
+  article.companion-card
+    .companion-card__image-wrapper
+      img.companion-card__image(
+        src=card.image
+        width='285'
+        height='285'
+        alt=card.name
+      )
+
+    .companion-card__content
+      if card.name || (card.tags && card.tags.length)
+        .companion-card__info
+          if card.name
+            h2.companion-card__name= card.name
+
+          if card.tags && card.tags.length
+            ul.companion-card__tags.list-reset
+              each tag in card.tags
+                li.companion-card__tag= tag
+
+      if card.countries && card.countries.length
+        ul.companion-card__countries.list-reset
+          each country in card.countries
+            li.companion-card__country
+              if country.flag
+                img.companion-card__country-flag(
+                  src=country.flag
+                  width='35'
+                  height='24'
+                  alt=`Флаг ${country.name}`
+                )
+              span.companion-card__country-name= country.name
+
+      if card.buttonText || card.likes != null
+        .companion-card__footer
+          if card.buttonText
+            button.companion-card__button.button(type='button')= card.buttonText
+
+          if card.likes != null
+            .companion-card__likes
+              span.companion-card__likes-icon
+              span.companion-card__likes-count= card.likes
+
+      if (card.transport && card.transport.length) || card.level != null
+        .companion-card__meta
+          if card.transport && card.transport.length
+            ul.companion-card__transport.list-reset
+              each item in card.transport
+                li.companion-card__transport-item
+                  button.companion-card__transport-button(
+                    class={ 'is-active': item.active }
+                    type='button'
+                    aria-label=item.label
+                  )
+                    span.companion-card__transport-icon= item.label
+
+          if card.level != null
+            .companion-card__level
+              span.companion-card__level-value= card.level
+              span.companion-card__level-text level

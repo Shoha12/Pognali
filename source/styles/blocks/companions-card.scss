@@ -1,0 +1,46 @@
+.companion-card {
+  display: grid;
+  grid-template-columns: 285px 1fr;
+}
+
+.companion-card__content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "info countries"
+    "footer meta";
+  background-color: #fff;
+  padding: 46px 43px 42px 62px;
+}
+
+.companion-card__image-wrapper > img {
+  display: block;
+  width: 285px;
+  height: 285px;
+}
+
+.companion-card__footer {
+  display: flex;
+  gap: 16px;
+}
+
+.companion-card__actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.companion-card__meta {
+  display: flex;
+  grid-column: 2 / 3;
+  justify-self: end;
+  align-items: center;
+  gap: 14px;
+  margin-left: auto;
+}
+
+.companion-card__transport {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}

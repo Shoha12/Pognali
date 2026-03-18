@@ -1,7 +1,22 @@
 extends base.pug
+
+block vars
+  - var pageBodyClass = 'page__body--catalog'
+
 include mixins/svg
 include header.pug
 
+include countries-filter.pug
+include companions-card.pug
+include companions-list.pug
+include companions-filter-aside.pug
+
+
 block content
+  include data/countries.pug
+  include data/personal.pug
+  include data/filter.pug
   +header(true)
   main
+    +countriesFilter(countries, 'europe')
+    +companionsList(cards, companionsFilter)

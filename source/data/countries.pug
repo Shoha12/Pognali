@@ -1,0 +1,89 @@
+-
+  var countries = {
+    europe: [
+      { letter: 'А', countries: ['Австрия','Албания','Андорра'] },
+      { letter: 'Б', countries: ['Белоруссия','Бельгия','Болгария','Босния и Герцеговина'] },
+      { letter: 'В', countries: ['Великобритания','Венгрия'] },
+      { letter: 'Г', countries: ['Германия','Греция','Грузия'] },
+      { letter: 'Д', countries: ['Дания'] },
+      { letter: 'И', countries: ['Ирландия','Испания','Италия'] },
+      { letter: 'Л', countries: ['Латвия','Литва','Лихтенштейн','Люксембург'] },
+      { letter: 'Н', countries: ['Нидерланды','Норвегия'] },
+      { letter: 'П', countries: ['Польша','Португалия'] },
+      { letter: 'Р', countries: ['Румыния','Россия'] },
+      { letter: 'С', countries: ['Сан-Марино','Сербия','Словакия','Словения'] },
+      { letter: 'У', countries: ['Украина'] },
+      { letter: 'Ф', countries: ['Финляндия','Франция'] },
+      { letter: 'Х', countries: ['Хорватия'] },
+      { letter: 'Ч', countries: ['Черногория','Чехия'] },
+      { letter: 'Ш', countries: ['Швейцария','Швеция'] }
+    ],
+
+    asia: [
+      { letter: 'А', countries: ['Азербайджан','Армения','Афганистан'] },
+      { letter: 'Б', countries: ['Бангладеш','Бахрейн','Бруней','Бутан'] },
+      { letter: 'В', countries: ['Восточный Тимор','Вьетнам'] },
+      { letter: 'И', countries: ['Израиль','Индия','Индонезия','Иордания','Ирак','Иран'] },
+      { letter: 'К', countries: ['Казахстан','Камбоджа','Катар','Киргизия','Китай'] },
+      { letter: 'Л', countries: ['Лаос','Ливан'] },
+      { letter: 'М', countries: ['Малайзия'] },
+      { letter: 'Н', countries: ['Непал'] },
+      { letter: 'О', countries: ['ОАЭ','Оман'] },
+      { letter: 'П', countries: ['Пакистан'] },
+      { letter: 'С', countries: ['Саудовская Аравия','Сирия'] },
+      { letter: 'Т', countries: ['Таджикистан','Таиланд','Туркмения','Турция'] },
+      { letter: 'У', countries: ['Узбекистан'] }
+    ],
+
+    america: [
+      { letter: 'А', countries: ['Аргентина'] },
+      { letter: 'Б', countries: ['Белиз','Боливия','Бразилия'] },
+      { letter: 'В', countries: ['Венесуэла'] },
+      { letter: 'Г', countries: ['Гайана','Гватемала','Гондурас'] },
+      { letter: 'К', countries: ['Канада','Колумбия'] },
+      { letter: 'Н', countries: ['Никарагуа'] },
+      { letter: 'П', countries: ['Панама','Парагвай','Перу'] },
+      { letter: 'С', countries: ['Сальвадор','США'] },
+      { letter: 'У', countries: ['Уругвай'] },
+      { letter: 'Ч', countries: ['Чили'] },
+      { letter: 'Э', countries: ['Эквадор'] }
+    ],
+
+    islands: [
+      { letter: 'А', countries: ['Австралия','Антигуа и Барбуда'] },
+      { letter: 'Б', countries: ['Багамские Острова','Барбадос'] },
+      { letter: 'В', countries: ['Вануату'] },
+      { letter: 'Г', countries: ['Гаити','Гренада'] },
+      { letter: 'Д', countries: ['Доминика','Доминикана'] },
+      { letter: 'И', countries: ['Исландия'] },
+      { letter: 'К', countries: ['Кабо-Верде','Кипр','Кирибати'] },
+      { letter: 'М', countries: ['Маврикий','Мадагаскар','Мальдивы','Мальта'] },
+      { letter: 'Н', countries: ['Науру','Новая Зеландия'] },
+      { letter: 'П', countries: ['Палау','Папуа - Новая Гвинея'] },
+      { letter: 'С', countries: ['Самоа','Сейшелы','Сингапур'] },
+      { letter: 'Т', countries: ['Тонга','Тринидад и Тобаго','Тувалу'] },
+      { letter: 'Ф', countries: ['Фиджи','Филиппины'] },
+      { letter: 'Ш', countries: ['Шри-Ланка'] },
+      { letter: 'Я', countries: ['Ямайка','Япония'] }
+    ],
+
+    africa: [
+      { letter: 'А', countries: ['Алжир','Ангола'] },
+      { letter: 'Б', countries: ['Бенин','Ботсвана','Буркина-Фасо','Бурунди'] },
+      { letter: 'Г', countries: ['Габон','Гамбия','Гана','Гвинея','Гвинея-Бисау'] },
+      { letter: 'Д', countries: ['Джибути'] },
+      { letter: 'Е', countries: ['Египет'] },
+      { letter: 'З', countries: ['Замбия','Зимбабве'] },
+      { letter: 'К', countries: ['Камерун','Кения'] },
+      { letter: 'Л', countries: ['Лесото','Либерия','Ливия'] },
+      { letter: 'М', countries: ['Мавритания','Малави','Мали','Марокко'] },
+      { letter: 'Н', countries: ['Намибия','Нигер','Нигерия'] },
+      { letter: 'Р', countries: ['Руанда'] },
+      { letter: 'С', countries: ['Сенегал'] },
+      { letter: 'Т', countries: ['Танзания','Того','Тунис'] },
+      { letter: 'У', countries: ['Уганда'] },
+      { letter: 'Ч', countries: ['Чад'] },
+      { letter: 'Э', countries: ['Эритрея','Эсватини','Эфиопия'] },
+      { letter: 'Ю', countries: ['ЮАР','Южный Судан'] }
+    ]
+  }

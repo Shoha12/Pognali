@@ -1,0 +1,39 @@
+mixin countriesFilter(data, activeRegion = 'europe')
+  -
+    var regionLabels = {
+      europe: 'Европа',
+      asia: 'Азия',
+      america: 'Америка',
+      islands: 'Острова',
+      africa: 'Африка'
+    }
+
+  section.companions-filter
+    .section__container
+      .companions-filter__top
+        button.companions-filter__toggle(type='button')
+          span Фильтрация по странам:
+
+        .companions-filter__tabs
+          span.companions-filter__label.visually-hidden Страны:
+          ul.companions-filter__tabs-list.list-reset
+            each label, key in regionLabels
+              li.companions-filter__tabs-item
+                button.companions-filter__tab-button(
+                  class={ 'is-active': key === activeRegion }
+                  type='button'
+                  data-region=key
+                )= label
+
+      .companions-filter__body
+        .companions-filter__countries
+          each group in data[activeRegion]
+            .companions-filter__group
+              h2.companions-filter__letter= group.letter
+              ul.companions-filter__list.list-reset
+                each country in group.countries
+                  li.companions-filter__item
+                    a.companions-filter__link(href='#')= country
+
+        button.companions-filter__collapse(type='button')
+          span Свернуть

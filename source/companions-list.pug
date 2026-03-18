@@ -1,0 +1,12 @@
+mixin companionsList(cards, filter)
+  section.companions
+    .section__container
+      .companions__wrapper
+        if cards && cards.length
+          ul.companions-list.list-reset
+            each card in cards
+              li.companions-list__item
+                +companionCard(card)
+
+        if filter
+          +companionsAside(filter)

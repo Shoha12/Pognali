@@ -1,0 +1,53 @@
+-
+  var companionsFilter = {
+    title: 'Фильтрация',
+    groups: [
+      {
+        title: 'Хобби',
+        name: 'hobby',
+        options: [
+          { label: 'Фитнес', value: 'fitness' },
+          { label: 'Пляж', value: 'beach' },
+          { label: 'Йога', value: 'yoga' },
+          { label: 'Вечеринки', value: 'parties' }
+        ]
+      },
+      {
+        title: 'Музыка',
+        name: 'music',
+        options: [
+          { label: 'Рок', value: 'rock' },
+          { label: 'Поп', value: 'pop' },
+          { label: 'Хип-хоп', value: 'hiphop' },
+          { label: 'Электроника', value: 'electronic' }
+        ]
+      },
+      {
+        title: 'Еда',
+        name: 'food',
+        options: [
+          { label: 'ПП', value: 'pp' },
+          { label: 'Морепродукты', value: 'seafood' },
+          { label: 'Бургеры', value: 'burgers' },
+          { label: 'Смузи', value: 'smoothies' }
+        ]
+      }
+    ],
+    transport: {
+      title: 'Транспорт',
+      options: [
+        { label: 'Самолёт', value: 'plane', icon: 'plane' },
+        { label: 'Автобус', value: 'bus', icon: 'bus' },
+        { label: 'Велосипед', value: 'bike', icon: 'bike' },
+        { label: 'Пешком', value: 'walk', icon: 'walk' }
+      ]
+    },
+    level: {
+      title: 'Level',
+      min: 0,
+      max: 100,
+      from: 30,
+      to: 80
+    },
+    buttonText: 'Показать'
+  }
