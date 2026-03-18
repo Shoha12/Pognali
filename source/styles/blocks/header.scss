@@ -1,7 +1,13 @@
 .header {
   background-color: rgb(81, 97, 114);
   color: #ffffff;
-  padding: 10px 15px;
+
+  &--catalog {
+    background-color: #192144;
+    padding-bottom: 74px;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+  }
 
   @media (max-width: $tablet-max) {
     &:has(.nav--open) {
@@ -40,7 +46,7 @@
   align-items: center;
   gap: var(--header-brand-gap);
   z-index: 100;
-  padding: 38px 46px;
+  padding: 46px 0;
 
   @media (max-width: $tablet-max) {
     position: relative;
@@ -132,3 +138,14 @@
   }
 }
 
+.header__bottom {
+  margin-top: 74px;
+  padding-left: 66px;
+}
+
+.header__title {
+  color: #FFF;
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 60px;
+}
