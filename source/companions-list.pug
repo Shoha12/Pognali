@@ -1,6 +1,7 @@
 mixin companionsList(cards, filter)
   section.companions
     .section__container
+
       .companions__wrapper
         if cards && cards.length
           ul.companions-list.list-reset
@@ -10,3 +11,35 @@ mixin companionsList(cards, filter)
 
         if filter
           +companionsAside(filter)
+
+        .companions__controls
+          button.companions__more 
+            .companions__more-block
+              svg.companion__more-icon(
+                        width='26'
+                        height='26'
+                        aria-hidden='true'
+                      )
+                        use(href=`icons/stack.svg#icon_plus`)
+              span.companions__more-text Показать еще
+
+          ul.companions__pagination
+            li: a.companions__pagination-link(href='#').is-active 1
+            li: a.companions__pagination-link(href='#') 2
+            li: a.companions__pagination-link(href='#') 3
+            li: a.companions__pagination-link(href='#') 4
+            div.companions__arrows
+              button.companions__arrow.companions__arrow--prev(type="button" aria-label="Назад")
+                svg.companion__arrow-icon(
+                        width='13'
+                        height='20'
+                        aria-hidden='true'
+                      )
+                        use(href=`icons/stack.svg#pagination_btn`)
+              button.companions__arrow.companions__arrow--next(type="button" aria-label="Вперёд")
+                svg.companion__arrow-icon(
+                        width='13'
+                        height='20'
+                        aria-hidden='true'
+                      )
+                        use(href=`icons/stack.svg#pagination_btn`)

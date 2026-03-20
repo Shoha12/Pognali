@@ -25,23 +25,28 @@ mixin companionsAside(filter)
         fieldset.companions-sidebar__group
           legend.companions-sidebar__group-title= filter.transport.title
 
-          ul.companions-sidebar__transport.list-reset
+          ul.companions-sidebar__transport.companions-sidebar__list.list-reset
             each option in filter.transport.options
               li.companions-sidebar__transport-item
                 button.companions-sidebar__transport-button(
                   type='button'
                   aria-label=option.label
                 )
-                  span.companions-sidebar__transport-icon= option.icon
+                  svg.companion-card__transport-icon(
+                      width='23'
+                      height='22'
+                      aria-hidden='true'
+                    )
+                      use(href=`icons/stack.svg#${option.icon}`)
 
       if filter.level
         fieldset.companions-sidebar__group
           legend.companions-sidebar__group-title= filter.level.title
 
-          .companions-sidebar__range
+          .companions-sidebar__range.companions-sidebar__list
             .companions-sidebar__range-values
               span.companions-sidebar__range-value(data-from)= filter.level.from
-              span.companions-sidebar__range-divider —
+              span.companions-sidebar__range-divider
               span.companions-sidebar__range-value(data-to)= filter.level.to
 
             .companions-sidebar__slider(

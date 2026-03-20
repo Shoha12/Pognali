@@ -15,7 +15,6 @@ mixin countriesFilter(data, activeRegion = 'europe')
           span Фильтрация по странам:
 
         .companions-filter__tabs
-          span.companions-filter__label.visually-hidden Страны:
           ul.companions-filter__tabs-list.list-reset
             each label, key in regionLabels
               li.companions-filter__tabs-item
@@ -24,16 +23,49 @@ mixin countriesFilter(data, activeRegion = 'europe')
                   type='button'
                   data-region=key
                 )= label
+        
+        button.companions-filter__show(type='button') 
+          span.companions-filter__show-text Показать все
+          svg.companion__filter__show-icon(
+                        width='40'
+                        height='8'
+                        aria-hidden='true'
+                      )
+                        use(href=`icons/stack.svg#point`)
 
       .companions-filter__body
-        .companions-filter__countries
-          each group in data[activeRegion]
-            .companions-filter__group
-              h2.companions-filter__letter= group.letter
-              ul.companions-filter__list.list-reset
-                each country in group.countries
-                  li.companions-filter__item
-                    a.companions-filter__link(href='#')= country
+        each regionGroups, regionKey in data
+          .companions-filter__region(
+            class={ 'is-active': regionKey === activeRegion }
+            data-region-content=regionKey
+          )
+            // только для мобилки/планшета
+            ul.companions-filter__letters-nav.list-reset
+              each group, index in regionGroups
+                li.companions-filter__letters-item
+                  button.companions-filter__letters-button(
+                    class={ 'is-active': index === 0 }
+                    type='button'
+                    data-letter-button=group.letter
+                  )= group.letter
+
+            .companions-filter__countries
+              each group, index in regionGroups
+                .companions-filter__group(
+                  class={ 'is-active': index === 0 }
+                  data-letter-group=group.letter
+                )
+                  h2.companions-filter__letter= group.letter
+                  ul.companions-filter__list.list-reset
+                    each country in group.countries
+                      li.companions-filter__item
+                        a.companions-filter__link(href='#')= country
 
         button.companions-filter__collapse(type='button')
+          svg.companion__filter__collapse-icon(
+                        width='22'
+                        height='24'
+                        aria-hidden='true'
+                      )
+            use(href=`icons/stack.svg#menu-button-close`)
           span Свернуть

@@ -33,6 +33,7 @@
   line-height: 20px;
   text-transform: uppercase;
   opacity: 0.3;
+  cursor: pointer;
 }
 
 .companions-filter__tab-button.is-active {
@@ -71,9 +72,14 @@
   font-weight: 400;
   line-height: 30px;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .companions-filter__collapse {
+  display: flex;
+  gap: 17px;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   border-radius: 20px;
   border: none;
@@ -86,4 +92,56 @@
   text-transform: uppercase;
   font-family: inherit;
   margin-top: 50px;
+  cursor: pointer;
+}
+
+.companion__filter__collapse-icon {
+  color: #192144;
+}
+
+.companions-filter__letters-nav {
+  display: none;
+}
+
+.companions-filter__region {
+  display: none;
+}
+
+.companions-filter__region.is-active {
+  display: block;
+}
+
+.companions-filter__body {
+  display: none;
+}
+
+.companions-filter__collapse {
+  display: none;
+}
+
+.companions-filter__show {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: #192144;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 20px;
+  text-transform: uppercase;
+  border: none;
+  margin-left: 50px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.companions-filter.is-expanded .companions-filter__body {
+  display: block;
+}
+
+.companions-filter.is-expanded .companions-filter__collapse {
+  display: flex;
+}
+
+.companions-filter.is-expanded .companions-filter__show {
+  display: none;
 }

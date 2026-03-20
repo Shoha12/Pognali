@@ -5,6 +5,7 @@ block vars
 
 include mixins/svg
 include header.pug
+include footer.pug
 
 include countries-filter.pug
 include companions-card.pug
@@ -20,3 +21,4 @@ block content
   main
     +countriesFilter(countries, 'europe')
     +companionsList(cards, companionsFilter)
+  +footer()

@@ -1,0 +1,21 @@
+include mixins/svg
+
+
+mixin footer()
+  footer.footer
+    .section__container 
+      .footer__wrapper 
+        .footer__brand 
+          +icon('footer-logo-desktop', 'footer__logo footer__logo--desktop', 200, 50)
+          +icon('logo-mobile', 'footer__logo footer__logo--mobile', 96, 15)
+        ul.footer__social 
+          li
+            a.footer__social-link(href="#") 
+              +icon('telegram', 'footer__social-icon', 32, 32)
+          li
+            a.footer__social-link(href="#") 
+              +icon('vk', 'footer__social-icon', 32, 32)
+          li
+            a.footer__social-link(href="#") 
+              +icon('youtube', 'footer__social-icon', 32, 32)
+          

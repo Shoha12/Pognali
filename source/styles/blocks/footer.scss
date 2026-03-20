@@ -1,0 +1,40 @@
+.footer {
+  background-color: #fff;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+}
+
+.footer__wrapper {
+  padding: 53px 0 37px;
+  display: flex;
+  gap: 369px;
+  align-items: center;
+}
+
+.footer__logo {
+  display: block;
+  &--mobile {
+    display: none;
+  }
+}
+
+.footer__social {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+}
+
+.footer__social-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 62px;
+  height: 62px;
+  border-radius: 100%;
+  background-color: #A8D2F4;
+  cursor: pointer;
+}
+
+.footer__social-icon {
+  color: #000;
+}
