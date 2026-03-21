@@ -9,6 +9,10 @@
   display: flex;
   gap: 369px;
   align-items: center;
+
+  @media(max-width: 1023px) {
+    gap: 88px;
+  }
 }
 
 .footer__logo {

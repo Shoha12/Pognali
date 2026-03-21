@@ -9,6 +9,9 @@ mixin companionCard(card)
       )
 
     .companion-card__content
+      .companion-card__content-image 
+        img.companion-card__content-image--tablet(src=card.image width="190" height="190" alt=card.name)
+
       if card.name || (card.tags && card.tags.length)
         .companion-card__info
           if card.name

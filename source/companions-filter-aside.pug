@@ -5,8 +5,8 @@ mixin companionsAside(filter)
     form.companions-sidebar__form(action='#' method='get')
       if filter.groups && filter.groups.length
         each group in filter.groups
-          fieldset.companions-sidebar__group
-            legend.companions-sidebar__group-title= group.title
+          div.companions-sidebar__group
+            h3.companions-sidebar__group-title= group.title
 
             if group.options && group.options.length
               ul.companions-sidebar__list.list-reset
@@ -22,8 +22,8 @@ mixin companionsAside(filter)
                       span.companions-sidebar__text= option.label
 
       if filter.transport && filter.transport.options && filter.transport.options.length
-        fieldset.companions-sidebar__group
-          legend.companions-sidebar__group-title= filter.transport.title
+        div.companions-sidebar__group
+          span.companions-sidebar__group-title= filter.transport.title
 
           ul.companions-sidebar__transport.companions-sidebar__list.list-reset
             each option in filter.transport.options
@@ -40,8 +40,8 @@ mixin companionsAside(filter)
                       use(href=`icons/stack.svg#${option.icon}`)
 
       if filter.level
-        fieldset.companions-sidebar__group
-          legend.companions-sidebar__group-title= filter.level.title
+        div.companions-sidebar__group
+          span.companions-sidebar__group-title= filter.level.title
 
           .companions-sidebar__range.companions-sidebar__list
             .companions-sidebar__range-values

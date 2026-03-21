@@ -1,6 +1,18 @@
 .companion-card {
   display: grid;
   grid-template-columns: 285px 1fr;
+
+  @media(max-width: 1023px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.companion-card__content-image {
+  display: none;
+
+  @media(max-width: 1023px) {
+    display: block;
+  }
 }
 
 .companion-card__content {
@@ -13,6 +25,12 @@
   padding: 46px 43px 42px 62px;
   border-top-right-radius: 20px;
   border-end-end-radius: 20px;
+}
+
+.companion-card__image-wrapper {
+  @media(max-width: 1023px) {
+    display: none;
+  }
 }
 
 .companion-card__image-wrapper > img {

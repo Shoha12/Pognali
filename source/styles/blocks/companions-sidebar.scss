@@ -4,20 +4,55 @@
   align-self: start;
   justify-self: end;
   padding: 46px 42px 48px 48px;
+
+  @media(max-width: 1023px) {
+    order: -1;
+    margin-bottom: 40px;
+    justify-self: stretch;
+    background: #A8D2F4;
+    padding: 37px 19px 37px 34px;
+  }
 }
 
 .companions-sidebar__title {
   display: block;
   text-align: center;
+  position: relative;
   color: #1D2E5B;
   font-size: 30px;
   font-weight: 700;
   line-height: 30px;
   margin-bottom: 34px;
+
+  &:after {
+    content: '';
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: #F3C72B;
+    left: 0;
+    top: 65px;
+
+    @media(max-width: 1023px) {
+      display: block;
+    }
+  }
+
+  @media(max-width: 1023px) {
+    text-align: start;
+    margin-bottom: 72px;
+  }
 }
 
 .companions-sidebar__group {
   border: none;
+
+  @media(max-width: 1023px) {
+    display: grid;
+    grid-template-columns: 122px 1fr;
+    align-items: center;
+  }
 }
 
 .companions-sidebar__group-title {
@@ -33,13 +68,32 @@
   align-items: center;
   cursor: pointer;
 
-    &:after {
-      content: '';
-      position: absolute;
-      background: url('../../icons/down.svg') no-repeat center / contain;
-      width: 10px;
-      height: 6px;
-      right: 0;
+  @media(max-width: 1023px) {
+    display: block;
+    width: auto;
+    margin: 0;
+  }
+  
+  &:after {
+    content: '';
+
+    @media(max-width: 1023px) {
+      content: ':';
+      margin-left: -1px;
+    }
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    background: url('../../icons/down.svg') no-repeat center / contain;
+    width: 10px;
+    height: 6px;
+    right: 0;
+
+    @media(max-width: 1023px) {
+      display: none;
+    }
   }
 }
 
@@ -56,18 +110,26 @@
   font-size: 20px;
   font-weight: 400;
   line-height: 20px;
+
+  @media(max-width: 1023px) {
+    white-space: nowrap;
+  }
 }
 
 .companions-sidebar__form {
   display: flex;
   flex-direction: column;
   gap: 19px;
+
+  @media(max-width: 1023px) {
+    gap: 26px;
+  }
 }
 
 .companions-sidebar__control {
   display: flex;
   align-items: center;
-  gap: 13px;
+  gap: 12px;
 }
 
 .companions-sidebar__mark {
@@ -99,13 +161,28 @@
   flex-direction: column;
   gap: 16px;
   padding: 0;
+
+  @media(max-width: 1023px) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: start;
+    gap: 0;
+    align-items: center;
+    max-height: none;
+    overflow: visible;
+    padding: 0;
+  }
 }
 
 .companions-sidebar__group.is-open .companions-sidebar__list {
   max-height: 500px;
   padding: 23px 0 32px;
-}
 
+  @media(max-width: 1023px) {
+    max-height: none;
+    padding: 0;
+  }
+}
 
 .companions-sidebar__control input:checked + .companions-sidebar__mark:after {
   display: block;
@@ -134,6 +211,21 @@
   opacity: 1;
 }
 
+@media (max-width: 1023px) {
+  .companions-sidebar__range.companions-sidebar__list {
+    display: grid;
+    grid-template-columns: 281px 148px;
+    column-gap: 32px;
+    align-items: center;
+  }
+
+  .companions-sidebar__slider {
+    margin-top: 0;
+    width: 100%;
+    max-width: none;
+  }
+}
+
 .companions-sidebar__range-values {
   position: relative;
   display: flex;
@@ -143,6 +235,13 @@
   padding: 15px 31px 11px 39px;
   border-radius: 4px;
   border: 1px solid #CBCED9;
+  min-width: 176px;
+
+  @media(max-width: 1023px) {
+    padding: 15px 18px 11px 26px;
+    min-width: 148px;
+    order: 2;
+  }
 
   &:after {
     content: '';
@@ -191,7 +290,12 @@
 
 .companions-sidebar__slider {
   margin-top: 14px;
-  padding: 0 7px; 
+  padding: 0 7px;
+
+  @media(max-width: 1023px) {
+    margin-top: 0;
+    max-width: 336px;
+  }
 }
 
 .companions-sidebar__slider.noUi-target {
@@ -200,6 +304,10 @@
   border-radius: 0;
   background: #c7d2df;
   box-shadow: none;
+
+  @media(max-width: 1023px) {
+    background: rgba($color: #1D2E5B, $alpha: 0.2);
+  }
 }
 
 .companions-sidebar__slider .noUi-base {
@@ -249,4 +357,8 @@
   padding: 17px 42px;
   height: 49px;
   cursor: pointer;
+
+  @media(max-width: 1023px) {
+    margin-top: 63px;
+  }
 }
