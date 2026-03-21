@@ -5,13 +5,18 @@ mixin countriesFilter(data, activeRegion = 'europe')
       asia: 'Азия',
       america: 'Америка',
       islands: 'Острова',
-      africa: 'Африка'
     }
 
   section.companions-filter
     .section__container
       .companions-filter__top
         button.companions-filter__toggle(type='button')
+          svg.companion__filter__toggle-icon(
+                        width='23'
+                        height='15'
+                        aria-hidden='true'
+                      )
+            use(href=`icons/stack.svg#icon_filter`)
           span Фильтрация по странам:
 
         .companions-filter__tabs

@@ -1,17 +1,32 @@
 .companions {
   padding-bottom: 77px;
+
+  @media(max-width: 1023px) {
+    padding: 200px 0 62px;
+  }
 }
 
 .companions__wrapper {
   display: grid;
   grid-template-columns: 1fr 285px;
   gap: 85px;
+
+  @media(max-width: 1023px) {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
 }
 
 .companions-list {
   display: flex;
   flex-direction: column;
   gap: 30px;
+
+  @media(max-width: 1023px) {
+    order: 2;
+    gap: 39px;
+    margin-bottom: 46px;
+  }
 }
 
 .companions__more {
@@ -27,6 +42,10 @@
   margin: 0 auto;
   margin-bottom: 73px;
   cursor: pointer;
+
+  @media(max-width: 1023px) {
+    margin-bottom: 56px;
+  }
 }
 
 .companions__more-block {
@@ -86,5 +105,9 @@
   &--next {
     transform: rotate(180deg);
   }
+}
+
+.companions__controls {
+  order: 3;
 }
 

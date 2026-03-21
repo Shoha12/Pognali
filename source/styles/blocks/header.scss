@@ -1,6 +1,8 @@
 .header {
   background-color: rgb(81, 97, 114);
   color: #ffffff;
+  position: relative;
+  z-index: 3;
 
   &--catalog {
     background-color: #192144;
