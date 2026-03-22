@@ -19,7 +19,7 @@ mixin countriesFilter(data, activeRegion = 'europe')
             use(href=`icons/stack.svg#icon_filter`)
           span Фильтрация по странам:
 
-        .companions-filter__tabs
+        .companions-filter__tabs.companions-filter__tabs--top
           ul.companions-filter__tabs-list.list-reset
             each label, key in regionLabels
               li.companions-filter__tabs-item
@@ -39,6 +39,15 @@ mixin countriesFilter(data, activeRegion = 'europe')
                         use(href=`icons/stack.svg#point`)
 
       .companions-filter__body
+        .companions-filter__tabs.companions-filter__tabs--body
+          ul.companions-filter__tabs-list.list-reset
+            each label, key in regionLabels
+              li.companions-filter__tabs-item
+                button.companions-filter__tab-button(
+                  class={ 'is-active': key === activeRegion }
+                  type='button'
+                  data-region=key
+                )= label
         each regionGroups, regionKey in data
           .companions-filter__region(
             class={ 'is-active': regionKey === activeRegion }

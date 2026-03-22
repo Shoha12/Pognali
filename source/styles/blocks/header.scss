@@ -9,6 +9,12 @@
     padding-bottom: 74px;
     border-bottom-left-radius: 50px;
     border-bottom-right-radius: 50px;
+
+    @media(max-width: 767px) {
+      padding-bottom: 13px;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
   }
 
   @media (max-width: $tablet-max) {
@@ -56,7 +62,8 @@
   }
 
   @media (max-width: $mobile-max) {
-    padding: 28px 13px;
+    padding: 0;
+    padding-top: 35px;
   }
 }
 
@@ -143,6 +150,11 @@
 .header__bottom {
   margin-top: 74px;
   padding-left: 66px;
+
+  @media(max-width: 767px) {
+    padding-left: 0;
+    margin-top: 62px;
+  }
 }
 
 .header__title {
@@ -150,4 +162,9 @@
   font-size: 60px;
   font-weight: 700;
   line-height: 60px;
+
+  @media(max-width: 767px) {
+    font-size: 36px;
+    line-height: 36px;
+  }
 }

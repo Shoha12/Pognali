@@ -4,6 +4,10 @@
   @media(max-width: 1023px) {
     padding: 200px 0 62px;
   }
+
+  @media(max-width: 767px) {
+    padding: 89px 0 46px;
+  }
 }
 
 .companions__wrapper {
@@ -83,6 +87,10 @@
 .companions__pagination-link.is-active {
   background: #4f7dbb;
   border-radius: 100%;
+
+  @media(max-width: 1023px) {
+    background-color: #A8D2F4;
+  }
 }
 
 .companions__arrows {

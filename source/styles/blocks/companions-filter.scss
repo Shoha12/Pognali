@@ -12,18 +12,60 @@
     width: 100%;
     z-index: 2;
   }
+
+  @media(max-width: 767px) {
+    padding: 65px 0 17px;
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+  }
 }
 
 .companions-filter__top {
   display: flex;
   align-items: center;
   gap: 5px;
+
+  @media(max-width: 767px) {
+    align-items: center;
+    gap: 0;
+  }
 }
 
 .companion__filter__show-icon {
   @media(max-width: 1023px) {
     width: 33px;
     height: 6px;
+  }
+
+  @media(max-width: 767px) {
+    width: 17px;
+    height: 3px;
+  }
+}
+
+.companion__filter__toggle-icon {
+  @media(max-width: 767px) {
+    width: 15px;
+    height: 10px;
+    margin-top: 4px;
+  }
+}
+
+.companions-filter__tabs {
+  &--body {
+    display: none;
+
+    @media(max-width: 767px) {
+      display: block;
+    }
+  }
+
+  &--top {
+    display: block;
+
+    @media(max-width: 767px) {
+      display: none;
+    }
   }
 }
 
@@ -51,6 +93,14 @@
 
   @media(max-width: 1023px) {
     display: none;
+  }
+
+  @media(max-width: 767px) {
+    display: flex;
+    gap: 11px;
+    font-size: 15px;
+    line-height: 18px;
+    align-items: flex-start;
   }
 }
 
@@ -194,6 +244,10 @@
   @media(max-width: 1023px) {
     margin-left: 34px;
   }
+
+  @media(max-width: 767px) {
+    margin-left: 7px;
+  }
 }
 
 .companions-filter.is-expanded .companions-filter__collapse {
@@ -213,6 +267,17 @@
   width: 22px;
   height: 24px;
   margin-left: 40px;
+
+  @media(max-width: 767px) {
+    margin-left: 0;
+    width: 16px;
+    height: 16px;
+    margin-left: 8px;
+  }
+
+  @media(max-width: 767px) {
+    transform: translateY(-7px);
+  }
 }
 
 .companions-filter__group {
@@ -244,5 +309,17 @@
 .companions-filter__letters-button.is-active{
   @media(max-width: 1023px) {
     opacity: 1;
+  }
+}
+
+.companions-filter__show-text {
+  @media(max-width: 767px) {
+    display: none;
+  }
+}
+
+.companions-filter__toggle > span {
+  @media(max-width: 767px) {
+    text-align: start;
   }
 }

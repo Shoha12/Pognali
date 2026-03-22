@@ -15,7 +15,9 @@ mixin companionCard(card)
       if card.name || (card.tags && card.tags.length)
         .companion-card__info
           if card.name
-            h2.companion-card__name(class={ 'is-active': card.active })= card.name
+            .companion-card__heading
+              h2.companion-card__name= card.name
+              span.companion-card__status(class={ 'is-active': card.active })
 
           if card.tags && card.tags.length
             ul.companion-card__tags.list-reset
@@ -23,17 +25,19 @@ mixin companionCard(card)
                 li.companion-card__tag= tag
 
       if card.countries && card.countries.length
-        ul.companion-card__countries.list-reset
-          each country in card.countries
-            li.companion-card__country
-              if country.flag
-                img.companion-card__country-flag(
-                  src=country.flag
-                  width='35'
-                  height='24'
-                  alt=`Флаг ${country.name}`
-                )
-              span.companion-card__country-name= country.name
+        div.companions-card__block 
+          span.companions-card__block-title хочет посетить:
+          ul.companion-card__countries.list-reset
+            each country in card.countries
+              li.companion-card__country
+                if country.flag
+                  img.companion-card__country-flag(
+                    src=country.flag
+                    width='35'
+                    height='24'
+                    alt=`Флаг ${country.name}`
+                  )
+                span.companion-card__country-name= country.name
 
       if card.buttonText || card.likes != null
         .companion-card__footer
