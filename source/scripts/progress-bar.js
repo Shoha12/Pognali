@@ -7,9 +7,15 @@ const progressBar = () => {
     const radius = 28;
     const circumference = 2 * Math.PI * radius;
 
+    let offset = circumference * (1 - value / 100);
+
+    if (value > 0 && value < 100) {
+      offset = Math.max(offset, 6);
+    }
+
     progress.style.strokeDasharray = `${circumference}`;
-    progress.style.strokeDashoffset = circumference * (1 - value / 100);
+    progress.style.strokeDashoffset = offset;
   });
-} 
+};
 
 export default progressBar;

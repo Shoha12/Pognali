@@ -10,7 +10,7 @@
     border-bottom-left-radius: 50px;
     position: absolute;
     width: 100%;
-    z-index: 2;
+    z-index: 3;
   }
 
   @media(max-width: 767px) {
@@ -77,6 +77,12 @@
   @media(max-width: 1023px) {
     gap: 19px;
   }
+
+  @media(max-width: 767px) {
+    flex-direction: column;
+    gap: 9px;
+    margin-bottom: 22px;
+  }
 }
 
 .companions-filter__toggle {
@@ -114,6 +120,11 @@
   text-transform: uppercase;
   opacity: 0.3;
   cursor: pointer;
+
+  @media(max-width: 767px) {
+    font-size: 16px;
+    line-height: 18px;
+  }
 }
 
 .companions-filter__tab-button.is-active {
@@ -156,6 +167,11 @@
   line-height: 30px;
   text-decoration: none;
   cursor: pointer;
+
+  @media(max-width: 767px) {
+    font-size: 16px;
+    line-height: 22px;
+  }
 }
 
 .companions-filter__collapse {
@@ -176,10 +192,23 @@
   font-family: inherit;
   margin-top: 50px;
   cursor: pointer;
+
+  @media(max-width: 767px) {
+    margin-top: 10px;
+    padding: 12px 0 10px;
+    font-size: 16px;
+    line-height: 20px;
+    gap: 11px;
+  }
 }
 
 .companion__filter__collapse-icon {
   color: #192144;
+
+  @media(max-width: 767px) {
+    width: 14px;
+    height: 14px;
+  }
 }
 
 .companions-filter__letters-nav {
@@ -189,6 +218,10 @@
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 35px;
+  }
+
+  @media(max-width: 767px) {
+    gap: 0;
   }
 }
 
@@ -203,6 +236,11 @@
     display: grid;
     grid-template-columns: 345px 156px;
     gap: 100px;
+  }
+
+  @media(max-width: 767px) {
+    grid-template-columns: 1fr;
+    gap: 15px;
   }
 }
 
@@ -220,6 +258,10 @@
 
   @media(max-width: 1023px) {
     padding: 62px 0 27px;
+  }
+
+  @media(max-width: 767px) {
+    padding: 20px 25px 28px;
   }
 }
 
@@ -292,6 +334,18 @@
   }
 }
 
+.companions-filter__letters-item {
+  @media(max-width: 767px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 43px;
+    height: 40px;
+    background-color: #fff;
+    border-bottom: 1px solid #EDEFF6;
+  }
+}
+
 .companions-filter__letters-button {
   @media(max-width: 1023px) {
     font-family: inherit;
@@ -304,11 +358,25 @@
     line-height: 60px;
     text-transform: uppercase;
   }
+
+  @media(max-width: 767px) {
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 14px;
+    opacity: 1;
+  }
 }
 
 .companions-filter__letters-button.is-active{
   @media(max-width: 1023px) {
     opacity: 1;
+  }
+
+  @media(max-width: 767px) {
+    background-color: #192144;
+    color: #fff;
   }
 }
 

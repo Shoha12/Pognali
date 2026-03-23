@@ -1,97 +1,189 @@
 mixin companionCard(card)
   article.companion-card
-    .companion-card__image-wrapper
-      img.companion-card__image(
-        src=card.image
-        width='285'
-        height='285'
-        alt=card.name
-      )
+    .companion-card__desktop
+      .companion-card__image-wrapper
+        img.companion-card__image(
+          src=card.image
+          width='285'
+          height='285'
+          alt=card.name
+        )
 
-    .companion-card__content
-      .companion-card__content-image 
-        img.companion-card__content-image--tablet(src=card.image width="190" height="190" alt=card.name)
+      .companion-card__content
+        .companion-card__content-image
+          img.companion-card__content-image--tablet(
+            src=card.image
+            width='190'
+            height='190'
+            alt=card.name
+          )
 
-      if card.name || (card.tags && card.tags.length)
-        .companion-card__info
+        if card.name || (card.tags && card.tags.length)
+          .companion-card__info
+            if card.name
+              .companion-card__heading
+                h2.companion-card__name= card.name
+                span.companion-card__status(class={ 'is-active': card.active })
+
+            if card.tags && card.tags.length
+              ul.companion-card__tags.list-reset
+                each tag in card.tags
+                  li.companion-card__tag= tag
+
+        if card.countries && card.countries.length
+          .companions-card__block
+            span.companions-card__block-title хочет посетить:
+            ul.companion-card__countries.list-reset
+              each country in card.countries
+                li.companion-card__country
+                  if country.flag
+                    img.companion-card__country-flag(
+                      src=country.flag
+                      width='35'
+                      height='24'
+                      alt=`Флаг ${country.name}`
+                    )
+                  span.companion-card__country-name= country.name
+
+        if card.buttonText || card.likes != null
+          .companion-card__footer
+            if card.buttonText
+              button.companion-card__button.button(type='button')= card.buttonText
+
+            if card.likes != null
+              .companion-card__likes
+                span.companion-card__likes-icon
+                  svg.companion-card__likes-svg(
+                    width='20'
+                    height='20'
+                    aria-hidden='true'
+                  )
+                    use(href=`icons/stack.svg#icon_heart`)
+                span.companion-card__likes-count= card.likes
+
+        if (card.transport && card.transport.length) || card.level != null
+          .companion-card__meta
+            if card.transport && card.transport.length
+              ul.companion-card__transport.list-reset
+                each item in card.transport
+                  li.companion-card__transport-item
+                    span.companion-card__transport-button(
+                      class={ 'is-active': item.active }
+                      aria-label=item.label
+                    )
+                      svg.companion-card__transport-icon(
+                        width='25'
+                        height='25'
+                        aria-hidden='true'
+                      )
+                        use(href=`icons/stack.svg#${item.label}`)
+
+            if card.level != null
+              .companion-card__level(data-level=card.level)
+                svg.companion-card__level-svg(
+                  width='60'
+                  height='60'
+                  viewBox='0 0 60 60'
+                  aria-hidden='true'
+                )
+                  circle.companion-card__level-bg(
+                    cx='30'
+                    cy='30'
+                    r='28'
+                  )
+                  circle.companion-card__level-progress(
+                    cx='30'
+                    cy='30'
+                    r='28'
+                  )
+
+                .companion-card__level-content
+                  span.companion-card__level-value= card.level
+                  span.companion-card__level-text level
+
+    .companion-card__mobile(class=card.card)
+      .companion-card__mobile-top
+        .companion-card__mobile-left
+          img.companion-card__mobile-image(
+            src=card.image
+            width='70'
+            height='70'
+            alt=card.name
+          )
+
+        .companion-card__mobile-right
           if card.name
-            .companion-card__heading
-              h2.companion-card__name= card.name
-              span.companion-card__status(class={ 'is-active': card.active })
+            .companion-card__mobile-heading
+              h2.companion-card__mobile-name= card.name
+              span.companion-card__mobile-status(class={ 'is-active': card.active })
 
-          if card.tags && card.tags.length
-            ul.companion-card__tags.list-reset
+          if card.likes != null
+            .companion-card__mobile-likes
+              span.companion-card__mobile-likes-icon
+                svg.companion-card__likes-svg(
+                  width='12'
+                  height='12'
+                  aria-hidden='true'
+                )
+                  use(href=`icons/stack.svg#icon_heart`)
+              span.companion-card__mobile-likes-count= card.likes
+
+        if card.tags && card.tags.length
+            ul.companion-card__mobile-tags.list-reset
               each tag in card.tags
-                li.companion-card__tag= tag
+                li.companion-card__mobile-tag= tag
 
       if card.countries && card.countries.length
-        div.companions-card__block 
-          span.companions-card__block-title хочет посетить:
-          ul.companion-card__countries.list-reset
+        .companion-card__mobile-block
+          span.companion-card__mobile-block-title хочет посетить:
+          ul.companion-card__mobile-countries.list-reset
             each country in card.countries
-              li.companion-card__country
+              li.companion-card__mobile-country
                 if country.flag
-                  img.companion-card__country-flag(
+                  img.companion-card__mobile-country-flag(
                     src=country.flag
                     width='35'
                     height='24'
                     alt=`Флаг ${country.name}`
                   )
-                span.companion-card__country-name= country.name
-
-      if card.buttonText || card.likes != null
-        .companion-card__footer
-          if card.buttonText
-            button.companion-card__button.button(type='button')= card.buttonText
-
-          if card.likes != null
-            .companion-card__likes
-              span.companion-card__likes-icon
-                svg.companion-card__likes-svg(
-                      width='20'
-                      height='20'
-                      aria-hidden='true'
-                      )
-                      use(href=`icons/stack.svg#icon_heart`)
-
-              span.companion-card__likes-count= card.likes
+                span.companion-card__mobile-country-name= country.name
 
       if (card.transport && card.transport.length) || card.level != null
-        .companion-card__meta
-          if card.transport && card.transport.length
-            ul.companion-card__transport.list-reset
-              each item in card.transport
-                li.companion-card__transport-item
-                  span.companion-card__transport-button(
-                    class={ 'is-active': item.active }
-                    aria-label=item.label
-                  )
-                    svg.companion-card__transport-icon(
-                      width='25'
-                      height='25'
-                      aria-hidden='true'
+        .companion-card__mobile-meta
+          .companion-card__mobile-meta-column
+            span.companion-card__mobile-meta-title транспорт:
+            if card.transport && card.transport.length
+              ul.companion-card__mobile-transport.list-reset
+                each item in card.transport
+                  li.companion-card__mobile-transport-item
+                    span.companion-card__transport-button(
+                      class={ 'is-active': item.active }
+                      aria-label=item.label
                     )
-                      use(href=`icons/stack.svg#${item.label}`)
+                      svg.companion-card__transport-icon(
+                        width='25'
+                        height='25'
+                        aria-hidden='true'
+                      )
+                        use(href=`icons/stack.svg#${item.label}`)
 
           if card.level != null
-            .companion-card__level(data-level=card.level)
-              svg.companion-card__level-svg(
-                width='60'
-                height='60'
-                viewBox='0 0 60 60'
-                aria-hidden='true'
-              )
-                circle.companion-card__level-bg(
-                  cx='30'
-                  cy='30'
-                  r='28'
+            .companion-card__mobile-meta-column.companion-card__mobile-meta-column--level
+              span.companion-card__mobile-meta-title.companion-card__mobile-meta-title--lvl левел:
+              .companion-card__level(data-level=card.level)
+                svg.companion-card__level-svg(
+                  width='60'
+                  height='60'
+                  viewBox='0 0 60 60'
+                  aria-hidden='true'
                 )
-                circle.companion-card__level-progress(
-                  cx='30'
-                  cy='30'
-                  r='28'
-                )
+                  circle.companion-card__level-bg(cx='30' cy='30' r='28')
+                  circle.companion-card__level-progress(cx='30' cy='30' r='28')
 
-              .companion-card__level-content
-                span.companion-card__level-value= card.level
-                span.companion-card__level-text level
+                .companion-card__level-content
+                  span.companion-card__level-value= card.level
+                  span.companion-card__level-text level
+
+      if card.buttonText
+        .companion-card__mobile-bottom
+          button.companion-card__button.companion-card__button--mobile(type='button')= card.buttonText
