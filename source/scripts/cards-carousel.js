@@ -31,7 +31,14 @@ export function initCardsCarousel(root) {
   /** @type {AbortController | null} */
   let interactionAbort = null;
 
+  /** @type {ResizeObserver | null} */
+  let bleedObserver = null;
+
   function unbindInteractions() {
+    if (bleedObserver) {
+      bleedObserver.disconnect();
+      bleedObserver = null;
+    }
     if (interactionAbort) {
       interactionAbort.abort();
       interactionAbort = null;
@@ -159,12 +166,22 @@ export function initCardsCarousel(root) {
     onPointerUp(ev);
   }
 
+  function updateCardsBleedLeft() {
+    if (mobileMq.matches) {
+      root.style.removeProperty('--cards-bleed-left');
+      return;
+    }
+    root.style.setProperty('--cards-bleed-left', `${root.getBoundingClientRect().left}px`);
+  }
+
   function onResizeDesktop() {
     updateAccent();
+    updateCardsBleedLeft();
   }
 
   function bindStaticMobile() {
     unbindInteractions();
+    root.style.removeProperty('--cards-bleed-left');
     root.classList.add('cards--static-mobile');
     const els = items();
     els.forEach((el) => {
@@ -187,11 +204,18 @@ export function initCardsCarousel(root) {
 
     goToSlide(currentIndex);
     scheduleAutoplayIfIdle();
+    updateCardsBleedLeft();
+
+    bleedObserver = new ResizeObserver(() => {
+      updateCardsBleedLeft();
+    });
+    bleedObserver.observe(root);
 
     if (document.fonts && document.fonts.ready) {
       document.fonts.ready.then(() => {
         if (!mobileMq.matches) {
           updateAccent();
+          updateCardsBleedLeft();
         }
       });
     }

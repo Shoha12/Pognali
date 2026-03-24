@@ -1,12 +1,16 @@
 // Стили “по образцу” `direction.scss` для секции попутчиков.
 $fellow-travelers-desktop-aside-inline: clamp(77px, 4.8vw + 28px, 97px);
+$fellow-travelers-card-width: 285px;
+$fellow-travelers-card-width-mobile: 270px;
 
 .fellow-travelers {
     position: relative;
     z-index: -1;
-
+    margin-top: -52px;
     @media (max-width: $tablet-max) {
         margin-top: -40px;
+        background-color: $special-background-fellow-travelers;
+        border-radius: 0 0 40px 40px;
     }
 
     @media (max-width: $mobile-max) {
@@ -16,11 +20,12 @@ $fellow-travelers-desktop-aside-inline: clamp(77px, 4.8vw + 28px, 97px);
 
 .fellow-travelers__wrapper {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 52%);
-    column-gap: clamp(8px, 0.8vw + 4px, 20px);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 52.7%);
     grid-template-areas:
         "aside cards"
         "button cards";
+    padding-left: 10px;   
+    margin-bottom: 120px; 
 
     @media (max-width: $tablet-max) {
         grid-template-columns: minmax(0, 1fr);
@@ -29,7 +34,6 @@ $fellow-travelers-desktop-aside-inline: clamp(77px, 4.8vw + 28px, 97px);
             "text"
             "cards"
             "button";
-        background-color: $basic-grey;
     }
 
     @media (max-width: $mobile-max) {
@@ -41,14 +45,10 @@ $fellow-travelers-desktop-aside-inline: clamp(77px, 4.8vw + 28px, 97px);
     grid-area: aside;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: start;
     align-self: stretch;
     min-width: 0;
-    margin-top: 101px;
-    margin-right: 88px;
-    margin-bottom: 3px;
-    margin-left: $fellow-travelers-desktop-aside-inline;
+    margin: 157px auto -50px;
     text-align: start;
 
     @media (max-width: $tablet-max) {
@@ -69,53 +69,135 @@ $fellow-travelers-desktop-aside-inline: clamp(77px, 4.8vw + 28px, 97px);
 .fellow-travelers__container-text .block-about__container-text {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: start;
     justify-content: start;
     align-self: stretch;
     min-width: 0;
-    gap: 156px;
+    margin-bottom: 53px;
 }
 
 .fellow-travelers__container-cards {
     grid-area: cards;
     position: relative;
-    z-index: -1;
+    z-index: 0;
     min-width: 0;
+    overflow: visible;
+    background-color: $special-background-fellow-travelers;
+    border-radius: 0 0 0 40px;
+    box-shadow: 12px 0 24px rgba(0, 0, 0, 0.12);
+
+    > * {
+        position: relative;
+        z-index: 1;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 100%;
+        width: var(
+            --cards-bleed-right,
+            calc(60px + max(0px, (100vw - #{$desktop-max}) / 2))
+        );
+        background-color: $special-background-fellow-travelers;
+        border-bottom-right-radius: 40px;
+        box-shadow: 12px 0 24px rgba(0, 0, 0, 0.12);
+        pointer-events: none;
+        z-index: 0;
+    }
 
     @media (max-width: $tablet-max) {
-        z-index: 0;
+        border-radius: 0;
+        box-shadow: none;
+
+        &::after {
+            display: none;
+        }
+    }
+
+    @media (max-width: $mobile-max) {
+        border-radius: 0 0 30px 30px;
+        box-shadow: 8px 0 20px rgba(0, 0, 0, 0.12);
     }
 }
 
 .block-about__title.fellow-travelers__title {
     font-weight: 700;
-    font-size: 75px;
+    font-size: 95px;
     line-height: 45px;
     font-variant: all-small-caps;
     color: $special-blue-darkest;
+    margin-bottom: 41px;
+
+    @media (max-width: 1177px) {
+        font-size: 75px;
+        line-height: 45px;
+    }
 
     @media (max-width: $tablet-max) {
-        font-size: clamp(3rem, 9vw + 2rem, 5.9375rem);
-        line-height: 1.05;
+        font-size: 95px;
+        line-height: 45px;  
     }
 
     @media (max-width: $mobile-max) {
-        font-size: clamp(2rem, 9vw + 1rem, 2.75rem);
-        line-height: 1.1;
+        font-size: 50px;
+        line-height: 24px;
+    }
+
+    @media (min-width: $mobile-min) and (max-width: $tablet-max) {
+        color: $special-white;  
     }
 }
+
 .block-about__text.fellow-travelers__text {
     color: $special-grey;
-    font-size: 23px;
+    font-size: 24px;
     line-height: 33px;
+    padding: 0px 60px 0 5px;
+
+    br.fellow-travelers__text-break {
+        @media (max-width: $tablet-max) {
+            display: none;
+        }
+    }
 
     @media (max-width: $tablet-max) {
         font-size: 24px;
-        line-height: 33px;
+        line-height: 34px;
     }
+
     @media (max-width: $mobile-max) {
         font-size: 14px;
         line-height: 22px;
+    }
+
+    @media (min-width: $mobile-min) and (max-width: $tablet-max) {
+        color: $special-white;  
+    }
+}
+
+.block-description__text.fellow-travelers__description {
+    color: $special-grey;
+    padding: 0 60px 0 5px;
+    margin: 0;
+    font-weight: 300;
+
+    @media (max-width: $tablet-max) {
+        padding: 0;
+        font-size: 22px;
+        line-height: 24px;
+    }
+
+    @media (max-width: $mobile-max) {
+        font-size: 14px;
+        line-height: 22px;
+        padding: 0;
+    }
+
+    @media (min-width: $mobile-min) and (max-width: $tablet-max) {
+        color: $special-white;  
     }
 }
 
@@ -125,11 +207,10 @@ $fellow-travelers-desktop-aside-inline: clamp(77px, 4.8vw + 28px, 97px);
     z-index: 2;
     width: fit-content;
     max-width: 100%;
-    min-width: min(100%, 298px);
+    min-width: min(100%, 292px);
     box-sizing: border-box;
     grid-area: button;
-    margin-left: $fellow-travelers-desktop-aside-inline;
-    margin-right: 88px;
+    margin-left: -4px;
     transform: translateX(8px);
 
     @media (max-width: $tablet-max) {
@@ -158,8 +239,7 @@ $fellow-travelers-desktop-aside-inline: clamp(77px, 4.8vw + 28px, 97px);
 
 .fellow-travelers__people-block {
     width: 100%;
-    margin-top: 54px;
-    margin-bottom: 72px;
+    margin: 132px 0 119px 77px;
 }
 
 @media (max-width: $tablet-max) {
@@ -167,7 +247,7 @@ $fellow-travelers-desktop-aside-inline: clamp(77px, 4.8vw + 28px, 97px);
         margin-left: 0;
         margin-right: 0;
         margin-inline: auto;
-        max-width: 81%;
+        max-width: 100%;
         margin-top: 44px;
     }
 }
@@ -191,12 +271,14 @@ $fellow-travelers-desktop-aside-inline: clamp(77px, 4.8vw + 28px, 97px);
 
 .fellow-travelers__people {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px;
+    grid-template-columns: repeat(2, minmax(0, 285px));
+    gap: 30px;
     background-color: $special-background-fellow-travelers;
+    align-items: start;
+    justify-items: center;
 
     @media (max-width: $mobile-max) {
-        grid-template-columns: 1fr;
+        grid-template-columns: 270px;
         gap: 10px;
     }
 }
@@ -207,10 +289,23 @@ $fellow-travelers-desktop-aside-inline: clamp(77px, 4.8vw + 28px, 97px);
     justify-content: flex-start;
     border-radius: 22px;
     background-color: $special-white;
-    width: 285px;
+    width: $fellow-travelers-card-width;
+    box-sizing: border-box;
+
+    &:nth-child(2) {
+        @media (min-width: $tablet-min) {
+            margin-top: 70px;
+        }
+    }
+
+    @media (max-width: $tablet-max) {
+        &:nth-child(2) {
+            margin-top: 0;
+        }
+    }
 
     @media (max-width: $mobile-max) {
-        width: 270px;
+        width: $fellow-travelers-card-width-mobile;
     }
 }
 
@@ -220,6 +315,9 @@ $fellow-travelers-desktop-aside-inline: clamp(77px, 4.8vw + 28px, 97px);
     gap: 6px;
     min-width: 0;
     background-color: $special-white;
+    align-items: center;
+    padding: 34px 15px 24px;
+    border-radius: 0 0 20px 20px;
 }
 
 .fellow-travelers__person-container-name {
@@ -240,17 +338,20 @@ $fellow-travelers-desktop-aside-inline: clamp(77px, 4.8vw + 28px, 97px);
 
 .fellow-travelers__person-name {
     font-weight: 700;
-    font-size: 22px;
-    line-height: 24px;
-    color: $basic-black;
+    font-size: 24px;
+    line-height: 22px;
+    color: $special-blue-darkest;
+    padding: 0 19px 0 10px;
+    margin-bottom: 17px;
 }
 
 .fellow-travelers__person-about {
-    font-weight: 500;
-    font-size: 15px;
-    line-height: 20px;
-    color: $special-grey;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+    text-align: center;
     opacity: 0.9;
+    margin-bottom: 18px;
 }
 
 .fellow-travelers__transport {
@@ -265,21 +366,11 @@ $fellow-travelers-desktop-aside-inline: clamp(77px, 4.8vw + 28px, 97px);
     flex-shrink: 0;
 }
 
-@media (max-width: $mobile-max) {
-    .fellow-travelers__person-card {
-        padding: 16px;
-    }
-
-    .fellow-travelers__person-card::after {
-        right: 16px;
-        top: 16px;
-    }
-
-    .fellow-travelers__person-name {
-        font-size: 20px;
-        line-height: 22px;
-    }
+.fellow-travelers__person-card {
+    z-index: 2;
+    margin-top: -32px;
 }
+
 
 .fellow-travelers__transport-icon {
     display: block;
@@ -411,4 +502,22 @@ $level-ring-stroke: 4px;
     align-items: center;
     justify-content: center;
     text-align: center;
+}
+
+.fellow-travelers__photo-flag-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    background-image: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0) 0,
+        rgba(255, 255, 255, 0) 40%,
+        #ffffff 40%,
+        #ffffff 100%
+    );
+}
+
+.fellow-travelers__photo-flag-picture {
+    width: 35px;
+    height: 25px;
 }

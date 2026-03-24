@@ -3,9 +3,12 @@ $direction-desktop-aside-inline: clamp(77px, 4.8vw + 28px, 97px);
 .direction {
     position: relative;
     z-index: 0;
+    overflow-x: clip;
 
     @media (max-width: $tablet-max) {
         margin-top: -40px;
+        background-color: $basic-grey;
+        border-radius: 0 0 40px 40px;
     }
 
     @media (max-width: $mobile-max) {
@@ -28,7 +31,6 @@ $direction-desktop-aside-inline: clamp(77px, 4.8vw + 28px, 97px);
          "text"
          "cards"
          "button";
-      background-color: $basic-grey;   
    }
 
     @media (max-width: $mobile-max) {
@@ -62,6 +64,11 @@ $direction-desktop-aside-inline: clamp(77px, 4.8vw + 28px, 97px);
    margin-left: $direction-desktop-aside-inline;
    text-align: start;
    gap: 156px;
+
+    @media (max-width: $desktop-max) {
+        margin-top: 105px;
+        margin-right: 36px;
+    }
 
     @media (max-width: $tablet-max) {
         grid-area: text;

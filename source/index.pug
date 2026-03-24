@@ -1,6 +1,7 @@
 extends base.pug
 include mixins/svg
 include header.pug
+include footer.pug
 
 block title
   | Погнали?
@@ -14,3 +15,5 @@ block content
     include fellow-travelers
     include profile
     include submit
+    include map
+  +footer()

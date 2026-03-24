@@ -3,6 +3,10 @@
   gap: 7px;
   flex-shrink: 0;
 
+  &--submit {
+    justify-content: center;
+  }
+
   @media (max-width: $tablet-max) {
     display: none;
   }
@@ -50,5 +54,19 @@
 
   @media (min-width: $desktop-min) {
     display: none;
+  }
+}
+
+.contacts__icon--phone-desktop {
+  @media (max-width: $tablet-max) {
+    display: none;
+  }
+}
+
+.contacts__icon--phone-mobile {
+  display: none;
+
+  @media (max-width: $tablet-max) {
+    display: block;
   }
 }

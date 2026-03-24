@@ -20,15 +20,15 @@
     flex-direction: column;
     align-items: flex-start;
     position: relative;
-    padding: 294px 72px 162px;
+    padding: 167px 135px 162px 13px;
     width: 100%;
     max-width: 770px;
 
     &::after {
         content: "";
         position: absolute;
-        top: 293px;
-        right: -50%;
+        right: -70%;
+        top: 167px;
         width: 654px;
         height: 665px;
         background-image: url("../../images/img-about-desktop@1x.png");
@@ -37,9 +37,6 @@
         background-position: center;
         pointer-events: none;
 
-        @media (min-width: $desktop-max) {
-            right: -78%;
-        }
 
         @media (min-resolution: 2dppx) {
             background-image: url("../../images/img-about-desktop@2x.png");

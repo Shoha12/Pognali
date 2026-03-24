@@ -11,19 +11,20 @@ include mixins/svg.pug
   const countryFlagBasename = {
     thailand: 'thailand-flag',
     czech: 'czech-flag',
+    belgium: 'belgium-flag',
   };
   const countryFlagAlt = {
     'sri-lanka': 'Шри-Ланка',
     thailand: 'Таиланд',
     seychelles: 'Сейшелы',
-    germany: 'Германия',
+    belgium: 'Бельгия',
     czech: 'Чехия',
   };
   const levelRingSize = 60;
   const levelRingStroke = 4;
   const levelRingRActual = (levelRingSize - levelRingStroke) / 2;
   const levelRingC = 2 * Math.PI * levelRingRActual;
-  const people = [{ id: 'firsova', name: 'Таня Фирсова', level: '99', about: '#ЗОЖ #ПП #Фитнес #пляж #авокадо #смузи', transport: ['plane'], country : ['sri-lanka', 'thailand', 'seychelles'], defaultChecked: false, image: { webp1x: 'images/firsova@1x.webp', webp2x: 'images/firsova@2x.webp', png1x: 'images/firsova@1x.png', png2x: 'images/firsova@2x.png' } }, { id: 'demin', name: 'Петя Демин', level: '80', about: '#бургер #бар #футбол #концерт #крафт', transport: ['plane', 'bus', 'foot'], country : ['germany', 'czech'], defaultChecked: true, image: { webp1x: 'images/demin@1x.webp', webp2x: 'images/demin@2x.webp', png1x: 'images/demin@1x.png', png2x: 'images/demin@2x.png' } }];
+  const people = [{ id: 'firsova', name: 'Таня Фирсова', level: '99', about: '#ЗОЖ #ПП #Фитнес #пляж #авокадо #смузи', transport: ['plane'], country : ['sri-lanka', 'thailand', 'seychelles'], defaultChecked: false, image: { webp1x: 'images/firsova@1x.webp', webp2x: 'images/firsova@2x.webp', png1x: 'images/firsova@1x.png', png2x: 'images/firsova@2x.png' } }, { id: 'demin', name: 'Петя Демин', level: '80', about: '#бургер #бар #футбол #концерт #крафт', transport: ['plane', 'bus', 'foot'], country : ['belgium', 'czech'], defaultChecked: true, image: { webp1x: 'images/demin@1x.webp', webp2x: 'images/demin@2x.webp', png1x: 'images/demin@1x.png', png2x: 'images/demin@2x.png' } }];
 
 .fellow-travelers__people-block
   h3.fellow-travelers__people-title.visually-hidden Выберите попутчиков
@@ -74,7 +75,6 @@ include mixins/svg.pug
                 span.fellow-travelers__photo-image-level-inner
                   span.fellow-travelers__photo-image-level-value= person.level
                   span.fellow-travelers__photo-image-level-label level
-          .fellow-travelers__photo-flag
         .fellow-travelers__person-card
           .fellow-travelers__person-icon-flag
             ul.fellow-travelers__photo-flag-list.list-reset
