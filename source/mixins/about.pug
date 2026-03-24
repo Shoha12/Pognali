@@ -1,4 +1,4 @@
 mixin blockAbout(title, text, titleClass, textClass, containerClass)
   div.block-about__container-text(class=containerClass)
     h2.block-about__title.title(class=titleClass)= title
-    p.block-about__text.text(class=textClass)= text
+    p.block-about__text.text(class=textClass)!= text

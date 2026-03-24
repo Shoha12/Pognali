@@ -1,0 +1,198 @@
+$direction-desktop-aside-inline: clamp(77px, 4.8vw + 28px, 97px);
+
+.direction {
+    position: relative;
+    z-index: 0;
+    overflow-x: clip;
+
+    @media (max-width: $tablet-max) {
+        margin-top: -40px;
+        background-color: $basic-grey;
+        border-radius: 0 0 40px 40px;
+    }
+
+    @media (max-width: $mobile-max) {
+        margin-top: -50px;
+    }
+}
+
+.direction__wrapper {
+   display: grid;
+   grid-template-columns: minmax(0, 52%) minmax(0, 1fr);
+   column-gap: clamp(8px, 0.8vw + 4px, 20px);
+   grid-template-areas:
+      "cards aside"
+      "cards button";
+
+   @media (max-width: $tablet-max) {
+      grid-template-columns: minmax(0, 1fr);
+      column-gap: 0;
+      grid-template-areas:
+         "text"
+         "cards"
+         "button";
+   }
+
+    @media (max-width: $mobile-max) {
+        padding-bottom: 54px;
+    }
+}
+
+.direction__aside {
+   grid-area: aside;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: flex-start;
+   min-width: 0;
+
+   @media (max-width: $tablet-max) {
+      display: contents;
+   }
+}
+
+.direction__container-text {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: start;
+   align-self: stretch;
+   min-width: 0;
+   margin-top: 101px;
+   margin-right: 88px;
+   margin-bottom: 3px;
+   margin-left: $direction-desktop-aside-inline;
+   text-align: start;
+   gap: 156px;
+
+    @media (max-width: $desktop-max) {
+        margin-top: 105px;
+        margin-right: 36px;
+    }
+
+    @media (max-width: $tablet-max) {
+        grid-area: text;
+        margin:
+            34px
+            clamp(16px, 9vw + 44px, 73px)
+            clamp(4px, 0.8vw + 4px, 10px)
+            clamp(16px, 5.5vw + 31px, 73px);
+    }
+
+    @media (max-width: $mobile-max) {
+        margin: 92px auto 84px;
+        padding: 0 25px;
+    }
+}
+
+.direction__container-cards {
+   grid-area: cards;
+   position: relative;
+   z-index: -1;
+   min-width: 0;
+
+   @media (max-width: $tablet-max) {
+      z-index: 0;
+   }
+}
+
+.direction__title { 
+    font-weight: 700;
+    font-size: 75px;
+    line-height: 45px; 
+    font-variant: all-small-caps;
+    color: $special-blue-darkest;
+    margin-bottom: clamp(20px, 1.5vw + 14px, 32px);
+
+    @media (max-width: $tablet-max) {
+        font-size: clamp(3rem, 9vw + 2rem, 5.9375rem);
+        line-height: 1.05;
+        margin-bottom: 27px;
+    }
+
+    @media (max-width: $mobile-max) {
+        font-size: clamp(2rem, 9vw + 1rem, 2.75rem);
+        line-height: 1.1; 
+        margin-bottom: 12px;
+    }
+}
+
+.block-about__title.direction__title {
+    font-weight: 700;
+    font-size: 75px;
+    line-height: 45px;
+    font-variant: all-small-caps;
+    color: $special-blue-darkest;
+
+    @media (max-width: $tablet-max) {
+        font-size: clamp(3rem, 9vw + 2rem, 5.9375rem);
+        line-height: 1.05;
+    }
+
+    @media (max-width: $mobile-max) {
+        font-size: clamp(2rem, 9vw + 1rem, 2.75rem);
+        line-height: 1.1;
+    }
+}
+
+.block-about__text.direction__text {
+    color: $special-grey;
+    font-size: 23px;
+    line-height: 33px;
+
+    @media (max-width: $tablet-max) {
+        font-size: 24px;
+        line-height: 33px;
+    }
+
+    @media (max-width: $mobile-max) {
+        font-size: 14px;
+        line-height: 22px;
+    }
+
+    .direction__text-break {
+        @media (max-width: $mobile-max) {
+            display: none;
+        }
+    }
+}
+
+
+.button__wrapper.direction__button-container {
+    align-self: flex-start;
+    position: relative;
+    z-index: 2;
+    width: fit-content;
+    max-width: 100%;
+    min-width: min(100%, 298px);
+    box-sizing: border-box;
+    grid-area: button;
+    margin-left: $direction-desktop-aside-inline;
+    margin-right: 88px;
+    transform: translateX(8px);
+
+    @media (max-width: $tablet-max) {
+        margin-left: 0;
+        margin-right: 0;
+        margin-inline: auto;
+        justify-self: center;
+        margin-top: -102px;
+    }
+
+    @media (max-width: $tablet-max) {
+        display: block;
+        width: 100%;
+        max-width: 81%;
+        min-width: 0;
+        justify-self: stretch;
+        margin-inline: auto;
+        transform: none;
+    }
+
+    @media (max-width: $mobile-max) {
+        margin-top: 0;
+        max-width: 84%;
+    }
+}
+
+

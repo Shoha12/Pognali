@@ -4,6 +4,12 @@
     background-color: $basic-blue-medium;
     box-sizing: border-box;
     cursor: pointer;
+
+    @media (max-width: $mobile-max) {   
+        display: block;
+        width: 100%;
+        border-radius: 20px;
+    }
 }
 
 .button__link {
@@ -17,4 +23,24 @@
     width: auto;
     align-self: flex-start;
     justify-content: space-between;
+    width: 100%;
+
+    @media (max-width: $tablet-max) {
+        padding: 29px 19px 27px 35px;
+    }
+
+    @media (max-width: $mobile-max) {  
+        padding: 28px 30px 27px 31px; 
+        align-self: center;
+        display: flex;
+        width: 100%;
+    }
 }
+
+.button__link.direction__button-container {
+    @media (max-width: $mobile-max) {
+      font-size: 18px;
+      line-height: 18px;
+      padding: 23px 22px;
+    }
+  }

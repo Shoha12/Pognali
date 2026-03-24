@@ -1,0 +1,311 @@
+.cards {
+    position: relative;
+    z-index: 0;
+    background-color: $basic-grey;
+    border-radius: 0 0 40px 0;
+    padding: 138px 55px 164px 0px;
+    margin-top: -43px;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: calc(-1 * var(--cards-bleed-left, 100vw));
+        width: var(--cards-bleed-left, 100vw);
+        background-color: $basic-grey;
+        border-bottom-left-radius: 40px;
+        pointer-events: none;
+        z-index: -1;
+    }
+
+    @media (max-width: $tablet-max) {
+        &::before {
+            display: none;
+        }
+    }
+
+    @media (max-width: $mobile-max) {
+        border-radius: 0 0 30px 30px;
+    }
+
+    @media (max-width: $mobile-max) {
+        padding: 0;
+    }
+}
+
+@media (max-width: $mobile-max) {
+    .cards--static-mobile {
+        .cards__item,
+        .cards__item--accent,
+        .card__container-image {
+            transition: none;
+            animation: none;
+        }
+    }
+}
+
+.cards__viewport {
+    overflow: visible;
+    cursor: grab;
+    touch-action: none;
+
+    &:active {
+        cursor: grabbing;
+    }
+
+    &--dragging {
+        cursor: grabbing;
+        user-select: none;
+    }
+
+    @media (max-width: $mobile-max) {
+        cursor: default;
+        touch-action: auto;
+
+        &:active,
+        &.cards__viewport--dragging {
+            cursor: default;
+            user-select: auto;
+        }
+    }
+}
+
+.cards__list {
+    position: relative;
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 15%;
+        pointer-events: none;
+        z-index: 2;
+    }
+
+    &::before {
+        top: 0;
+        background: linear-gradient(
+            180deg,
+            $basic-grey 0%,
+            rgba($basic-grey, 0) 100%
+        );
+    }
+
+    &::after {
+        bottom: 0;
+        background: linear-gradient(
+            0deg,
+            $basic-grey 0%,
+            rgba($basic-grey, 0) 100%
+        );
+    }
+
+    @media (max-width: $mobile-max) {
+        margin-bottom: 8px;
+    }
+}
+
+.cards__item {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: space-between;
+    flex-shrink: 0;
+    background-color: $special-white;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+
+    transform: scale(0.96);
+    opacity: 0.82;
+    transition:
+        transform 0.45s cubic-bezier(0.33, 1, 0.68, 1),
+        box-shadow 0.45s cubic-bezier(0.33, 1, 0.68, 1),
+        opacity 0.45s cubic-bezier(0.33, 1, 0.68, 1);
+
+    @media (prefers-reduced-motion: reduce) {
+        transition-duration: 0.01ms;
+    }
+
+    @media (max-width: $mobile-max) {
+        transform: none;
+        opacity: 1;
+        transition: none;
+        flex-direction: column-reverse;
+        width: 84vw;
+        margin: 0 auto;
+        border-radius: 15px;
+        gap: 0;
+
+    }
+}
+
+.cards__list > .cards__item:first-child,
+.cards__list > .cards__item:last-child {
+    box-shadow: none;
+}
+
+.cards__item--accent {
+    z-index: 3;
+    transform: scale(1.02) translateY(0);
+    opacity: 1;
+    box-shadow:
+        0 18px 36px rgba(0, 0, 0, 0.18),
+        0 6px 14px rgba(0, 0, 0, 0.08);
+
+    .card__container-image {
+        transform: translateX(-63px);
+    }
+
+    @media (max-width: $mobile-max) {
+        z-index: 1;
+        transform: none;
+        opacity: 1;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+
+        .card__container-image {
+            transform: none;
+        }
+    }
+}
+
+.cards__list > .cards__item--accent:first-child,
+.cards__list > .cards__item--accent:last-child {
+    box-shadow: none;
+}
+
+.card__container-info {
+    padding: 24px 31px 17px;
+
+    @media (max-width: $mobile-max) {
+        padding: 28px 24px 24px;
+        margin-top: -35px;
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        z-index: 2;
+        background-color: $special-white;
+        border-radius: 10px 10px 15px 15px;
+    }
+}
+
+.card__title {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 24px;
+    color: $basic-black;
+    margin-bottom: 5px;
+
+    @media (max-width: $mobile-max) {
+        font-size: 21px;
+        line-height: 21px;
+    }
+
+    @media (max-width: $mobile-max) {
+        margin-bottom: 2px;
+    }
+}
+
+.card__text,
+.card__counter-number {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 20px;
+    color: $special-grey;
+    opacity: 0.3;
+}
+
+.card__text {
+    margin-bottom: 22px;
+
+    @media (max-width: $mobile-max) {
+        font-size: 16px;
+        line-height: 18px;
+        margin-bottom: 0;    }
+}
+
+.card__container-counter {
+    display: flex;
+    align-items: center;
+
+    @media (max-width: $mobile-max) {
+        margin: 1px -7px 0 0;
+        align-self: flex-start;
+        align-items: flex-start;
+        gap: 6px;
+    }
+}
+
+.card__counter-icon {
+    @media (max-width: $mobile-max) {
+        width: 16px;
+        height: 19px;
+    }
+}
+
+.card__counter-number {
+    color: $basic-blue;
+
+    @media (max-width: $mobile-max) {
+        font-size: 16px;
+        line-height: 20px;
+    }
+}
+
+
+.card__container-image {
+    position: relative;
+    z-index: 1;
+    height: 140px;
+    transform: translateX(0);
+    transition: transform 0.45s cubic-bezier(0.33, 1, 0.68, 1);
+
+    @media (prefers-reduced-motion: reduce) {
+        transition-duration: 0.01ms;
+    }
+
+    @media (max-width: $mobile-max) {
+        transition: none;
+        transform: none;
+        z-index: auto;
+
+    }
+}
+
+.card__flag-img {
+    position: absolute;
+    top: 23px;
+    left: -40px;
+
+    @media (max-width: $mobile-max) {
+        width: 35px;
+        height: 25px;
+        left: 25px;
+        top: 92px;
+        z-index: 4;
+    }
+}
+
+.card__image {
+    border-radius: 0 20px 20px 0;
+    width: 202px;
+    height: 140px;
+
+    @media (max-width: $mobile-max) {
+        width: 100%;
+        height: 110px;
+        border-radius: 10px 10px 0 0;
+        object-fit: cover;
+    }
+}

@@ -1,0 +1,153 @@
+.profile__wrapper {
+    margin-bottom: 60px;
+}
+
+.profile__title {
+    font-size: 95px;
+    line-height: 45px;
+    font-weight: 700;
+    font-variant: all-small-caps;
+    color: $special-blue-dark;
+    text-align: start;
+    margin-bottom: 159px;
+    padding-left: 6.5%;
+}
+
+.profile__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 32px;
+}
+
+.profile__info {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    position: relative;
+    z-index: 1; /* линии должны быть ниже карточки цены */
+    flex: 1;
+    min-width: 0;
+    padding-left: 15px;
+}
+
+.profile__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    align-items: start;
+    flex: 1;
+    overflow: visible;
+
+    .profile__item {
+        padding-top: 9px;
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 97px;
+            right: -453px;
+            height: 1px;
+            background-color: #e1e3e9;
+        }
+    }
+
+    .profile__item:last-child {
+        padding-bottom: 9px;
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 97px;
+            right: -453px;
+            height: 1px;
+            background-color: #e1e3e9;
+        }
+    }
+
+    .profile__item:nth-child(1) .profile__number {
+        background-color: $special-background-dark;
+    }
+
+    .profile__item:nth-child(2) .profile__number {
+        background-color: $special-blue-light;
+    }
+
+    .profile__item:nth-child(3) .profile__number {
+        background-color: $basic-blue-medium;
+    }
+}
+
+.profile__view {
+    display: flex;
+    gap: 25px;
+    flex-direction: row;
+    align-items: center;
+}
+
+.profile__number {
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 28px;
+    color: $special-white;
+    width: 73px;
+    height: 72px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $basic-grey-light;
+}
+
+.profile__text {
+    font-size: 28px;
+    line-height: 28px;
+    color: $special-grey;
+}
+
+.profile__link-icon {
+    background-image: url("../../icons/button-profile-icon.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 29px 28px;
+}
+
+.profile__link-text {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 20px;
+    color: $special-blue-darkest;
+}
+
+.profile__price-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: $special-white;
+    background-color: $special-background-fellow-travelers;
+    padding: 40px 47px 40px 46px;
+    border-radius: 20px;
+    position: relative;
+    z-index: 3;
+}
+
+.profile__price-text {
+    text-align: center;
+}
+
+.profile__price-title {
+    font-weight: 700;
+    font-size: 41px;
+    line-height: 28px;
+    font-variant: all-small-caps;
+    margin-bottom: 20px;
+}
+
+.profile__price-list {
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 28px; 
+}

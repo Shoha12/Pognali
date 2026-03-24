@@ -1,0 +1,17 @@
+include mixins/button.pug
+
+section.submit 
+    div.section__container
+        .submit__wrapper 
+            .submit__container-text
+                h2.submit__title Заинтерисовались?
+                p.submit__text Зарегистрируйтесь, это быстро и бесплано! Уже зарегистрированы? Тогда скорее 
+                a.submit__link.link-reset авторизуйтесь.
+            form.submit__form.form(action="#")
+                input.submit__input(type="email" name="email" placeholder="E-mail" required)
+                +buttonLink('#', 'Регистрация', 'submit__form__button-container')
+            .submit__contacts   
+                p.submit__contacts-text Остались вопросы? Мы с радостью на них ответим! 
+                include contacts.pug
+
+                           

@@ -1,0 +1,19 @@
+include mixins/about.pug
+include mixins/description.pug
+include mixins/button.pug
+
+
+section.direction
+    div.section__container
+        .direction__wrapper
+            .direction__aside
+                div.direction__container-text
+                    +blockAbout(
+                        'Направления',
+                        'Мы не продаем туры и ничего не рекламируем. <br class="direction__text-break">Люди сами пишут о странах, куда хотели бы отправиться и чем можно там заняться.' ,
+                        'direction__title',
+                        'direction__text'
+                    )
+            div.direction__container-cards
+                include cards-block
+            +buttonLink('catalog.html', 'Показать все', 'direction__button-container')

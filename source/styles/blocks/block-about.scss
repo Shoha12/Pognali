@@ -4,7 +4,7 @@
     line-height: 45px;
     font-variant: all-small-caps;
 
-    @media (max-width: $mobile-min) {
+    @media (max-width: $mobile-max) {
         font-size: 50px;
         line-height: 24px;
     }
@@ -19,9 +19,11 @@
         line-height: 33px;
     }
 
-    @media (max-width: $mobile-min) {
-        font-size: 14px;
-        line-height: 22px;
+    @media (max-width: $mobile-max) {
+        &:not(.direction__text) {
+            font-size: 14px;
+            line-height: 22px;
+        }
     }
 }
 
@@ -31,10 +33,13 @@
     line-height: 24px;
 
     @media (max-width: $tablet-min) {
+        font-weight: 300;
+        font-size: 21px;
         line-height: 25px;
+        letter-spacing: -0.06em;
     }
 
-    @media (max-width: $mobile-min) {
+    @media (max-width: $mobile-max) {
         font-size: 14px;
         line-height: 22px;
     }

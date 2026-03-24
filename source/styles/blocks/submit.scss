@@ -1,0 +1,58 @@
+.submit {
+    background-color: $special-background-fellow-travelers;
+}
+
+.submit__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    text-align: center;
+    color: $special-white;
+    padding: 175px 0 120px;
+
+}
+
+.submit__title {
+    font-size: 95px;
+    line-height: 45px;
+}
+
+.submit__text {
+    font-weight: 300;
+    font-size: 28px;
+    line-height: 31px;
+}   
+
+.submit__form {
+    display: flex;
+    justify-content: center;
+}
+
+.submit__input {
+    border-radius: 20px 0 0 20px;
+}
+
+.submit__input::placeholder {
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 24px;
+    color: $special-grey;
+    opacity: 0.3;
+    padding: 28px 36px;
+}
+
+.button__wrapper.submit__form__button-container {
+    border-radius: 0 20px 20px 0;
+
+    @media (max-width: $mobile-max) {
+        border-radius: 20px;
+    }
+}
+
+.submit .contacts__link {
+    color: $basic-blue-medium;
+    background-color: $basic-blue-darkest;
+    width: 45px;
+    height: 45px;
+}

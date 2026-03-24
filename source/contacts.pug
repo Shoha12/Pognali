@@ -1,9 +1,10 @@
 include mixins/svg
 
-div.contacts.contacts--mobile.contacts--desktop
+div.contacts.contacts--mobile.contacts--desktop.contacts--submit
   .contacts__item
     a.contacts__link.link-reset(href='tel:', aria-label='Позвонить')
-      +icon(contactsPhoneIcon || 'phone-icon', 'contacts__icon contacts__icon--phone', 18, 18)
+      +icon('phone-icon', 'contacts__icon contacts__icon--phone contacts__icon--phone-desktop', 18, 18)
+      +icon('phone-mobile-icon', 'contacts__icon contacts__icon--phone contacts__icon--phone-mobile', 18, 18)
     span.contacts__text 8 800 555-86-28
   .contacts__item
     a.contacts__link.link-reset(href='mailto:', aria-label='Написать на почту')

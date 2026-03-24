@@ -6,12 +6,13 @@ $webp-support: 'data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoBAAEAA
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    background-position: -1px -145px;
+    background-position: 0 -145px;
     width: 100%;
     min-height: 597px;
     margin-top: -1px;
-    margin-bottom: -200px;
+    margin-bottom: -70px;
     border-radius: 0 0 40px 40px;
+    z-index: 10;
 
 
     @media (min-resolution: 2dppx) {
@@ -34,7 +35,10 @@ $webp-support: 'data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoBAAEAA
     @media (max-width: $mobile-max) {
         background-image: url("../../images/hero-background-mobile@1x.png");
         background-position: 0px -88px;
-        height: 538px;
+        max-height: 538px;
+        min-height: 538px;
+        z-index: 100;
+        border-radius: 0;
 
         @media (min-resolution: 2dppx) {
             background-image: url("../../images/hero-background-mobile@2x.png");
@@ -55,8 +59,8 @@ $webp-support: 'data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoBAAEAA
     &::after {
         content: "";
         position: absolute;
-        top: -6%;
-        right: 7%;
+        top: -8%;
+       right: 16.5%;
         width: 431px;
         height: 640px;
         background-image: url("../../images/traveller-illustration-desktop@1x.png");
@@ -78,12 +82,12 @@ $webp-support: 'data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoBAAEAA
         }
     }
 
-    @media (min-width: $desktop-max) {
-        &::after {
-            top: -43px;
-            right: 275px;
-        }
-    }
+    // @media (min-width: $desktop-max) {
+    //     &::after {
+    //         top: -43px;
+    //         right: 275px;
+    //     }
+    // }
 
     @media (max-width: $tablet-max) {
         &::after {
@@ -133,7 +137,7 @@ $webp-support: 'data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoBAAEAA
 .hero__title {
     font-size: 70px;
     line-height: 70px;
-    padding: 44px 72px;
+    padding: 46px 11px 45px;
     margin-bottom: 77px;
 
     @media (max-width: $tablet-max) {

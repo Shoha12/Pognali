@@ -1,0 +1,55 @@
+include mixins/svg.pug
+
+- const cards = [{ title: 'Таиланд', text: 'Джунгли зовут!', number: '18321', image: { desktop: { webp1x: 'images/thailand-desktop@1x.webp', webp2x: 'images/thailand-desktop@2x.webp', png1x: 'images/thailand-desktop@1x.png', png2x: 'images/thailand-desktop@2x.png' }, mobile: { webp1x: 'images/thailand-mobile@1x.webp', webp2x: 'images/thailand-mobile@2x.webp', png1x: 'images/thailand-mobile@1x.png', png2x: 'images/thailand-mobile@2x.png' }, alt: 'Таиланд' }, flag: { img: { webp1x: 'images/thailand-flag@1x.webp', webp2x: 'images/thailand-flag@2x.webp', png1x: 'images/thailand-flag@1x.png', png2x: 'images/thailand-flag@2x.png', alt: 'Флаг Таиланда' } } }, { title: 'Франция', text: 'Трэ бьен, манифик!', number: '12518', image: { desktop: { webp1x: 'images/france-desktop@1x.webp', webp2x: 'images/france-desktop@2x.webp', png1x: 'images/france-desktop@1x.png', png2x: 'images/france-desktop@2x.png' }, mobile: { webp1x: 'images/france-mobile@1x.webp', webp2x: 'images/france-mobile@2x.webp', png1x: 'images/france-mobile@1x.png', png2x: 'images/france-mobile@2x.png' }, alt: 'Франция' }, flag: { img: { webp1x: 'images/france-flag@1x.webp', webp2x: 'images/france-flag@2x.webp', png1x: 'images/france-flag@1x.png', png2x: 'images/france-flag@2x.png', alt: 'Флаг Франции' } } }, { title: 'Чехия', text: 'Закоулки старой Европы', number: '5326', image: { desktop: { webp1x: 'images/czech-desktop@1x.webp', webp2x: 'images/czech-desktop@2x.webp', png1x: 'images/czech-desktop@1x.png', png2x: 'images/czech-desktop@2x.png' }, mobile: { webp1x: 'images/czech-mobile@1x.webp', webp2x: 'images/czech-mobile@2x.webp', png1x: 'images/czech-mobile@1x.png', png2x: 'images/czech-mobile@2x.png' }, alt: 'Чехия' }, flag: { img: { webp1x: 'images/czech-flag@1x.webp', webp2x: 'images/czech-flag@2x.webp', png1x: 'images/czech-flag@1x.png', png2x: 'images/czech-flag@2x.png', alt: 'Флаг Чехии' } } }]
+
+.cards(data-cards-carousel)
+    .cards__viewport
+        ul.cards__list.list-reset
+            each card, cardIndex in cards
+                li.cards__item.card(class=cardIndex === 1 ? 'cards__item--accent' : '')
+                    .card__container-info
+                        div.card__container-title
+                            h3.card__title= card.title
+                            p.card__text!= card.text
+                        div.card__container-counter
+                            span.card__counter-icon
+                                +icon('counter-icon', 'card__counter-icon', 27, 24)
+                            span.card__counter-number= card.number
+                    div.card__container-image
+                        if card.image
+                            picture
+                                source(
+                                    media="(max-width: 767px)"
+                                    srcset=`${card.image.mobile.webp1x} 1x, ${card.image.mobile.webp2x} 2x`
+                                    type="image/webp"
+                                )
+                                source(
+                                    media="(max-width: 767px)"
+                                    srcset=`${card.image.mobile.png1x} 1x, ${card.image.mobile.png2x} 2x`
+                                    type="image/png"
+                                )
+                                source(
+                                    srcset=`${card.image.desktop.webp1x} 1x, ${card.image.desktop.webp2x} 2x`
+                                    type="image/webp"
+                                )
+                                source(
+                                    srcset=`${card.image.desktop.png1x} 1x, ${card.image.desktop.png2x} 2x`
+                                    type="image/png"
+                                )
+                                //- fallback: если <picture>/<source> не поддерживаются, на мобилке должна быть мобильная картинка
+                                img.card__image(src=card.image.mobile.png1x, alt=card.image.alt)
+                        else
+                            img.card__image(src="images/card-image.png", alt="Направление")
+                        span.card__flag
+                            if card.flag && card.flag.img
+                                picture
+                                    source(
+                                        srcset=`${card.flag.img.webp1x} 1x, ${card.flag.img.webp2x} 2x`
+                                        type="image/webp"
+                                    )
+                                    source(
+                                        srcset=`${card.flag.img.png1x} 1x, ${card.flag.img.png2x} 2x`
+                                        type="image/png"
+                                    )
+                                    img.card__flag-img(src=card.flag.img.png1x, alt=card.flag.img.alt)
+

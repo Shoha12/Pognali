@@ -1,0 +1,39 @@
+-
+  const profilePriceFeatures = [
+    'Базовое размещение',
+    'Вывод на первых позициях',
+    'Кастомный цвет карточки',
+  ];
+
+section.profile 
+    div.section__container
+        .profile__wrapper
+            h2.profile__title.title Добавьте свой профиль      
+            .profile__container
+                .profile__info
+                    ul.profile__list
+                        each feature, index in profilePriceFeatures
+                            li.profile__item.profile__view
+                                span.profile__number= index + 1
+                                p.profile__text= feature
+                    .profile__button
+                        a.profile__link.profile__view.link-reset(href='#' aria-label='Показать тарифы для бизнеса')
+                            span.profile__number.profile__link-icon
+                            p.profile__link-text Показать тарифы для бизнеса
+                .profile__price
+                    .profile__price-container
+                        .profile__price-text
+                            h3.profile__price-title Бесплатно
+                            ul.profile__price-list.list-reset
+                                li.profile__price-item 99 руб./мес
+                                li.profile__price-item 59 руб./мес
+                        picture
+                            source(
+                                srcset="images/rates@1x.webp 1x, images/rates@2x.webp 2x"
+                                type="image/webp"
+                            )
+                            source(
+                                srcset="images/rates@1x.png 1x, images/rates@2x.png 2x"
+                                type="image/png"
+                            )
+                            img.profile__rates-img(src="images/rates@1x.png" alt="Тарифы" width="200" height="202")

@@ -4,7 +4,7 @@
     grid-template-columns: 24.5% 26.6% 26.6% 21.4%;
     gap: 0;
     z-index: 10;
-    padding: 0 60px;
+    padding: 0;
     align-items: stretch;
     box-sizing: border-box;
 
@@ -38,8 +38,8 @@
     &:nth-child(1) {
         z-index: 1;
         background-color: $special-background-dark;
-        border-top-left-radius: $instructions-radius;
-        border-bottom-left-radius: $instructions-radius;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
         padding-right: 42px;
     }
 
@@ -48,8 +48,8 @@
         width: calc(100% + 20px);
         margin-left: -8px;
         background-color: $special-blue-light;
-        border-top-left-radius: $instructions-radius;
-        border-bottom-left-radius: $instructions-radius;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
         box-shadow: $instructions-shadow;
         padding: 29px 42px 29px 30px;
     }
@@ -59,8 +59,8 @@
         width: calc(100% + 30px);
         margin-left: -12px;
         background-color: $basic-blue-medium;
-        border-top-left-radius: $instructions-radius;
-        border-bottom-left-radius: $instructions-radius;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
         box-shadow: $instructions-shadow;
         padding: 29px 69px 29px 29px;
     }
@@ -71,7 +71,7 @@
         margin-left: -19px;
         padding-right: 30px;
         background-color: $special-background-light;
-        border-radius: $instructions-radius;
+        border-radius: 20px;
         box-shadow: $instructions-shadow;
         padding: 29px 31px 29px 28px;
     }
@@ -99,19 +99,19 @@
         }
 
         &:nth-child(1) {
-            border-radius: $instructions-radius $instructions-radius 0 0;
+            border-radius: 20px 20px 0 0;
         }
 
         &:nth-child(2) {
-            border-radius: $instructions-radius $instructions-radius 0 0;
+            border-radius: 20px 20px 0 0;
         }
 
         &:nth-child(3) {
-            border-radius: 0 0 0 $instructions-radius;
+            border-radius: 0 0 0 20px;
         }
 
         &:nth-child(4) {
-            border-radius: 0 0 $instructions-radius $instructions-radius;
+            border-radius: 0 0 20px 20px;
         }
     }
 
@@ -131,21 +131,21 @@
         }
 
         &:nth-child(1) {
-            border-radius: $instructions-radius $instructions-radius 0 0;
+            border-radius: 7px 7px 0 0;
         }
 
         &:nth-child(2) {
-            border-radius: $instructions-radius $instructions-radius 0 0;
+            border-radius: 7px 7px 0 0;
             margin-top: -10px;
         }
 
         &:nth-child(3) {
-            border-radius: $instructions-radius $instructions-radius 0 0;
+            border-radius: 7px 7px 0 0;
             margin-top: -24px;
         }
 
         &:nth-child(4) {
-            border-radius: $instructions-radius;
+            border-radius: 7px;
             margin-top: -34px;
         }
     }

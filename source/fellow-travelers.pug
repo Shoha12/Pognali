@@ -1,0 +1,19 @@
+include mixins/about.pug
+include mixins/description.pug
+include mixins/button.pug
+
+section.fellow-travelers
+    div.section__container
+        .fellow-travelers__wrapper
+            .fellow-travelers__container-text
+                +blockAbout(
+                    'Попутчики',
+                    'Все мы индивидуальны и у каждого свой взгляд на идеальный отдых.<br class="fellow-travelers__text-break" /> Одному нужен пляж и коктейль, а другому маршрут для хайкинга.',
+                    'fellow-travelers__title',
+                    'fellow-travelers__text'
+                )
+                +blockDescription('Теперь можно легко найти единомышленников!', 'fellow-travelers__description')
+            +buttonLink('#', 'Показать всех', 'fellow-travelers__button-container')
+            .fellow-travelers__container-cards
+                include fellow-travelers-cards
+            
