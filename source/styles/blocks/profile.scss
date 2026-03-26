@@ -1,5 +1,5 @@
 .profile__wrapper {
-    margin-bottom: 60px;
+    margin-bottom: 64px;
 }
 
 .profile__title {
@@ -9,38 +9,38 @@
     font-variant: all-small-caps;
     color: $special-blue-dark;
     text-align: start;
-    margin-bottom: 159px;
+    margin-bottom: 105px;
     padding-left: 6.5%;
 }
 
 .profile__container {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    gap: 32px;
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 52%) minmax(0, 1fr);
+    gap: 48px;
 }
 
 .profile__info {
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 31px;
     position: relative;
     z-index: 1; /* линии должны быть ниже карточки цены */
     flex: 1;
     min-width: 0;
     padding-left: 15px;
+    margin-top: 62px;
 }
 
 .profile__list {
     display: flex;
     flex-direction: column;
-    gap: 0;
+    gap: 8px;
     align-items: start;
     flex: 1;
     overflow: visible;
 
     .profile__item {
-        padding-top: 9px;
         position: relative;
 
         &::before {
@@ -55,8 +55,6 @@
     }
 
     .profile__item:last-child {
-        padding-bottom: 9px;
-
         &::after {
             content: '';
             position: absolute;
@@ -88,6 +86,10 @@
     align-items: center;
 }
 
+.profile__link.profile__view {
+    gap: 20px;
+}
+
 .profile__number {
     font-weight: 400;
     font-size: 28px;
@@ -106,6 +108,7 @@
     font-size: 28px;
     line-height: 28px;
     color: $special-grey;
+    transform: translateY(5px);
 }
 
 .profile__link-icon {
@@ -125,17 +128,19 @@
 .profile__price-container {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: start;
     color: $special-white;
     background-color: $special-background-fellow-travelers;
-    padding: 40px 47px 40px 46px;
+    padding: 62px 47px 65px 84px;
     border-radius: 20px;
     position: relative;
     z-index: 3;
+    justify-content: space-between;
 }
 
 .profile__price-text {
     text-align: center;
+    margin: 22px 0;
 }
 
 .profile__price-title {
@@ -143,11 +148,14 @@
     font-size: 41px;
     line-height: 28px;
     font-variant: all-small-caps;
-    margin-bottom: 20px;
+    margin-bottom: 26px;
 }
 
 .profile__price-list {
     font-weight: 400;
     font-size: 28px;
     line-height: 28px; 
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
 }

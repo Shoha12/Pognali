@@ -1,0 +1,11 @@
+include mixins/svg
+
+section.address
+    div.section__container
+        .address__container
+            div.address__text-container
+                span.address__icon
+                p.address__text ул. Большая Конюшенная, 19/8
+            button.address__button.button(type="button") Проложить маршрут
+                +icon('arrow-button', 'button__icon', 11, 13)
+

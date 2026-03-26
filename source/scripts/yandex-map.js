@@ -57,7 +57,7 @@ function createMap(container) {
   const map = new window.ymaps.Map(container, {
     center: MAP_CENTER,
     zoom: MAP_ZOOM,
-    controls: ['zoomControl', 'fullscreenControl'],
+    controls: [],
   });
 
   const placemark = new window.ymaps.Placemark(

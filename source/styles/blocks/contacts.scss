@@ -3,10 +3,6 @@
   gap: 7px;
   flex-shrink: 0;
 
-  &--submit {
-    justify-content: center;
-  }
-
   @media (max-width: $tablet-max) {
     display: none;
   }

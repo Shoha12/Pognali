@@ -42,6 +42,7 @@
 
   @media (max-width: $tablet-max) {
     &:has(.nav--open) {
+      z-index: 1000;
       background-color: $special-white;
       color: $basic-blue-dark;
 

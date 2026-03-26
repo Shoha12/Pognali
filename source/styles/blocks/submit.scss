@@ -1,15 +1,25 @@
 .submit {
+    position: relative;
     background-color: $special-background-fellow-travelers;
+    border-radius: 0 0 61px 61px;
+    z-index: 2;
 }
 
 .submit__wrapper {
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 47px;
     text-align: center;
     color: $special-white;
-    padding: 175px 0 120px;
+    padding: 175px 0 103px;
+}
 
+.submit__container-text {
+    display: flex;
+    flex-direction: column;
+    gap: 46px;
+    text-align: center;
+    align-items: center;
 }
 
 .submit__title {
@@ -21,14 +31,32 @@
     font-weight: 300;
     font-size: 28px;
     line-height: 31px;
+    text-align: center;
+    width: 43vw;
 }   
 
+.submit__link {
+    font-weight: 300;
+    font-size: 28px;
+    line-height: 31px;
+    text-align: center;
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+    color: $basic-blue-medium;
+}
+
 .submit__form {
-    display: flex;
+    display: grid;
+    max-width: 1180px;
+    width: 100%;
+    align-self: center;
+    grid-template-columns: 72% 28%;
     justify-content: center;
+    margin-bottom: 25px;
 }
 
 .submit__input {
+    border-color: transparent;
     border-radius: 20px 0 0 20px;
 }
 
@@ -50,9 +78,61 @@
     }
 }
 
-.submit .contacts__link {
-    color: $basic-blue-medium;
-    background-color: $basic-blue-darkest;
-    width: 45px;
-    height: 45px;
+.submit .submit-contacts {
+    display: flex;
+    flex-shrink: 0;
+    gap: 105px;
+    margin-left: 15.6vw;
 }
+
+.submit .submit-contacts__item {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.submit .submit-contacts__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background-color: $basic-blue-darkest;
+    color: $basic-blue-medium;
+}
+
+.submit svg.submit-contacts__icon--phone-mobile {
+    width: 36px;
+    height: 34px;
+}
+
+.submit svg.submit-contacts__icon--email {
+    width: 36px;
+    height: 25px;
+}
+.submit__contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 43px;
+}
+
+.submit .submit-contacts__text {
+    font-size: 28px;
+    line-height: 28px;
+    font-weight: 700;
+    color: #cce5fa;
+    text-transform: uppercase;
+}
+
+.submit__contacts-text {
+    font-weight: 300;
+    font-size: 28px;
+    line-height: 30px;
+    text-align: center;
+    letter-spacing: 0.01em;
+}
+
+
+
