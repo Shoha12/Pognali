@@ -2,11 +2,11 @@ include mixins/svg
 
 div.submit-contacts
   .submit-contacts__item
-    a.submit-contacts__link.link-reset(href='tel:', aria-label='Позвонить')
+    a.submit-contacts__link.link-reset(href='tel:+78005558628' aria-label='Позвонить')
       +icon('phone-mobile-icon', 'submit-contacts__icon submit-contacts__icon--phone-mobile', 36, 34)
     span.submit-contacts__text 8 800 555-86-28
   .submit-contacts__item
-    a.submit-contacts__link.link-reset(href='mailto:', aria-label='Написать на почту')
+    button.submit-contacts__link.button-reset(type='button' aria-label='Написать на почту')
       +icon('email-icon-submit', 'submit-contacts__icon submit-contacts__icon--email', 36, 25)
     span.submit-contacts__text mail@htmlacademy.ru
 

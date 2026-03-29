@@ -49,7 +49,7 @@
     margin-bottom: 105px;
     padding-left: 6.5%;
 
-    @media (max-width: $tablet-max) {
+    @media (max-width: 1304px) {
         padding: 0;
         text-align: center;
         line-height: 0.92;
@@ -152,15 +152,15 @@
         }
     }
 
-    .profile__item:nth-child(1) .profile__number {
+    .profile__item:nth-child(3n + 1) .profile__number {
         background-color: $special-background-dark;
     }
 
-    .profile__item:nth-child(2) .profile__number {
+    .profile__item:nth-child(3n + 2) .profile__number {
         background-color: $special-blue-light;
     }
 
-    .profile__item:nth-child(3) .profile__number {
+    .profile__item:nth-child(3n + 3) .profile__number {
         background-color: $basic-blue-medium;
     }
 
@@ -300,9 +300,11 @@
     z-index: 3;
     justify-content: space-between;
 
-    @media (max-width: $tablet-max) {
+   
+    @media (max-width: 1330px) {
         flex-direction: column;
         padding: 2px 30px 14px;
+        align-items: center;
 
         picture {
             align-self: center;

@@ -37,17 +37,6 @@
         }
     }
 
-    @media (min-width: $tablet-min) and (max-width: $tablet-max) {
-        margin-top: 0;
-        margin-bottom: 0;
-        border-radius: 0;
-        isolation: auto;
-
-        &::after {
-            display: none;
-        }
-    }
-
     @media (max-width: $mobile-max) {
         border-radius: 0 0 30px 30px;
 
@@ -139,7 +128,7 @@
     }
 
     @media (max-width: $tablet-max) {
-        margin-bottom: 194px;
+        margin-bottom: 141px;
     }
 
     @media (max-width: $mobile-max) {

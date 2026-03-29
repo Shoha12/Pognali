@@ -45,6 +45,11 @@
   background-color: $special-blue-light;
   color: $basic-blue;
 
+  .contacts__icon {
+    flex-shrink: 0;
+    fill: currentColor;
+  }
+
   @media (min-width: $desktop-min) {
     color: $special-blue-dark;
   }

@@ -183,3 +183,28 @@
         line-height: 18px;
     }
 }
+
+@keyframes instructions-card-enter {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .instructions__card {
+        opacity: 0;
+        animation: instructions-card-enter 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+
+        @for $i from 1 through 4 {
+            &:nth-child(#{$i}) {
+                animation-delay: #{($i - 1) * 0.14}s;
+            }
+        }
+    }
+}

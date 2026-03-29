@@ -101,6 +101,7 @@ $direction-desktop-aside-inline: clamp(77px, 4.8vw + 28px, 97px);
 
    @media (max-width: $tablet-max) {
       z-index: 0;
+      margin-bottom: 54px;
    }
 }
 

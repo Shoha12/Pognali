@@ -1,6 +1,5 @@
 const AUTOPLAY_MS = 3000;
 const DRAG_THRESHOLD_PX = 48;
-/** Синхронно с $mobile-max в variables.scss */
 const MOBILE_MEDIA = '(max-width: 767px)';
 
 /**

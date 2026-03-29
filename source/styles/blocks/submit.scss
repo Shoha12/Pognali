@@ -196,6 +196,24 @@
     }
 }
 
+.submit__input--error {
+    color: $special-red;
+
+    &::placeholder {
+        color: $special-red;
+        opacity: 1;
+    }
+
+    &:focus,
+    &:focus-visible {
+        color: $special-red;
+
+        &::placeholder {
+            color: $special-red;
+        }
+    }
+}
+
 .button__wrapper.submit__form__button-container {
     border-radius: 0 20px 20px 0;
 
@@ -227,6 +245,11 @@
     flex-shrink: 0;
     gap: 105px;
     margin-left: 15.6vw;
+
+    @media (max-width: 1330px) {
+        flex-direction: column;
+        gap: 25px;
+    }
 
     @media (max-width: $tablet-max) {
         flex-direction: column;

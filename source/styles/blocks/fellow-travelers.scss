@@ -7,8 +7,7 @@ $fellow-travelers-card-width-mobile: 270px;
     z-index: 0;
     margin-top: -52px;
 
-    @media (max-width: $tablet-max) {
-        margin-top: -40px;
+    @media (max-width: 1330px) {
         background-color: $special-background-fellow-travelers;
         border-radius: 0 0 60px 60px;
     }
@@ -28,7 +27,7 @@ $fellow-travelers-card-width-mobile: 270px;
     padding-left: 10px;   
     margin-bottom: 120px; 
 
-    @media (max-width: $tablet-max) {
+    @media (max-width: 1330px) {
         grid-template-columns: minmax(0, 1fr);
         column-gap: 0;
         grid-template-areas:
@@ -54,9 +53,9 @@ $fellow-travelers-card-width-mobile: 270px;
     margin: 157px auto -50px;
     text-align: start;
 
-    @media (max-width: $tablet-max) {
+    @media (max-width: 1330px) {
         grid-area: text;
-        margin: 116px 0 3px -2px;
+        margin: 127px 0 3px -5px;
     }
 
     @media (max-width: $mobile-max) {
@@ -73,7 +72,7 @@ $fellow-travelers-card-width-mobile: 270px;
     min-width: 0;
     margin-bottom: 53px;
 
-    @media (max-width: $tablet-max) {
+    @media (max-width: 1330px) {
         margin-bottom: 73px;
         gap: 10px;
         padding-left: 3px;
@@ -125,7 +124,7 @@ $fellow-travelers-card-width-mobile: 270px;
         z-index: 0;
     }
 
-    @media (max-width: $tablet-max) {
+    @media (max-width: 1330px) {
         z-index: 0;
         margin-bottom: 77px;
 
@@ -168,7 +167,7 @@ $fellow-travelers-card-width-mobile: 270px;
         line-height: 45px;
     }
 
-    @media (max-width: $tablet-max) {
+    @media (max-width: 1330px) {
         font-size: 95px;
         line-height: 45px;  
     }
@@ -179,7 +178,7 @@ $fellow-travelers-card-width-mobile: 270px;
         margin-bottom: 10px;
     }
 
-    @media (min-width: $mobile-min) and (max-width: $tablet-max) {
+    @media (min-width: $mobile-min) and (max-width: 1330px) {
         color: $special-white;  
     }
 }
@@ -191,12 +190,12 @@ $fellow-travelers-card-width-mobile: 270px;
     padding: 0px 60px 0 5px;
 
     br.fellow-travelers__text-break {
-        @media (max-width: $tablet-max) {
+        @media (max-width: 1330px) {
             display: none;
         }
     }
 
-    @media (max-width: $tablet-max) {
+    @media (max-width: 1330px) {
         font-size: 24px;
         line-height: 34px;
     }
@@ -207,7 +206,7 @@ $fellow-travelers-card-width-mobile: 270px;
         padding: 0;
     }
 
-    @media (min-width: $mobile-min) and (max-width: $tablet-max) {
+    @media (min-width: $mobile-min) and (max-width: 1330px) {
         color: $special-white;  
     }
 }
@@ -218,7 +217,7 @@ $fellow-travelers-card-width-mobile: 270px;
     margin: 0;
     font-weight: 300;
 
-    @media (max-width: $tablet-max) {
+    @media (max-width: 1330px) {
         padding: 0;
         font-size: 22px;
         line-height: 24px;
@@ -230,7 +229,7 @@ $fellow-travelers-card-width-mobile: 270px;
         padding: 0;
     }
 
-    @media (min-width: $mobile-min) and (max-width: $tablet-max) {
+    @media (min-width: $mobile-min) and (max-width: 1330px) {
         color: $special-white;  
     }
 
@@ -253,7 +252,7 @@ $fellow-travelers-card-width-mobile: 270px;
     margin-left: -4px;
     transform: translateX(8px);
 
-    @media (max-width: $tablet-max) {
+    @media (max-width: 1330px) {
         display: block;
         width: 100%;
         max-width: 90%;
@@ -270,7 +269,7 @@ $fellow-travelers-card-width-mobile: 270px;
 }
 
 .button__link.fellow-travelers__button-container {
-    @media (max-width: $tablet-max) {
+    @media (max-width: 1330px) {
         padding-right: 25px;
     }
 }
@@ -279,7 +278,7 @@ $fellow-travelers-card-width-mobile: 270px;
     width: 100%;
     padding: 132px 5px 122px 77px;
 
-    @media (max-width: $tablet-max) {
+    @media (max-width: 1330px) {
         padding: 0;
         margin-left: 0;
         margin-right: 0;
@@ -309,6 +308,10 @@ $fellow-travelers-card-width-mobile: 270px;
     background-color: $special-background-fellow-travelers;
     align-items: start;
     justify-items: center;
+
+    @media (max-width: 1330px) {
+        justify-content: center;
+    }
 
     @media (max-width: $tablet-max) {
         justify-content: space-between;
@@ -341,12 +344,12 @@ $fellow-travelers-card-width-mobile: 270px;
     }
 
     &:nth-child(2) {
-        @media (min-width: $tablet-min) {
+        @media (min-width: 1331px) {
             margin-top: 70px;
         }
     }
 
-    @media (max-width: $tablet-max) {
+    @media (max-width: 1330px) {
         &:nth-child(2) {
             margin-top: 0;
         }
@@ -379,7 +382,7 @@ $fellow-travelers-card-width-mobile: 270px;
     padding: 34px 15px 24px;
     border-radius: 0 0 20px 20px;
 
-    @media (max-width: $tablet-max) {
+    @media (max-width: 1330px) {
         padding: 17px 15px 27px;
     }
 
@@ -470,7 +473,7 @@ $fellow-travelers-card-width-mobile: 270px;
     z-index: 2;
     margin-top: -32px;
 
-    @media (max-width: $tablet-max) {
+    @media (max-width: 1330px) {
         margin-top: -12px;
     }
 }
@@ -677,6 +680,7 @@ $level-ring-stroke: 4px;
 .fellow-travelers__photo-flag-list {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 20px;
     background-image: linear-gradient(
         to bottom,

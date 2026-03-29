@@ -9,6 +9,7 @@ import alphabetFilter from './alphabet-filter.js';
 import { initYandexMap } from './yandex-map.js';
 import { initProfileModal } from './modal.js';
 import { initSubmitValidation } from './submit-validation.js';
+import { initAboutParallax } from './about-parallax.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   initProfileModal();
@@ -20,4 +21,5 @@ document.addEventListener('DOMContentLoaded', () => {
   alphabetFilter();
   initYandexMap();
   initSubmitValidation();
+  initAboutParallax();
 });

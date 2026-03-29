@@ -2,15 +2,26 @@ const REQUIRED_EMAIL_MESSAGE = 'Введите e-mail';
 const DEFAULT_EMAIL_PLACEHOLDER = 'E-mail';
 const EMAIL_ERROR_CLASS = 'submit__input--error';
 
-const setEmailPlaceholderState = (emailInput) => {
+const isValidEmailValue = (value) => {
+  const probe = document.createElement('input');
+  probe.type = 'email';
+  probe.required = true;
+  probe.value = value;
+  return probe.checkValidity();
+};
+
+const applyEmailError = (emailInput) => {
+  emailInput.classList.add(EMAIL_ERROR_CLASS);
   if (emailInput.validity.valueMissing) {
     emailInput.placeholder = REQUIRED_EMAIL_MESSAGE;
-    emailInput.classList.add(EMAIL_ERROR_CLASS);
-    return;
+  } else {
+    emailInput.placeholder = DEFAULT_EMAIL_PLACEHOLDER;
   }
+};
 
-  emailInput.placeholder = DEFAULT_EMAIL_PLACEHOLDER;
+const clearEmailError = (emailInput) => {
   emailInput.classList.remove(EMAIL_ERROR_CLASS);
+  emailInput.placeholder = DEFAULT_EMAIL_PLACEHOLDER;
 };
 
 const initSubmitValidation = () => {
@@ -27,19 +38,26 @@ const initSubmitValidation = () => {
   }
 
   submitForm.addEventListener('submit', (evt) => {
-    if (!emailInput.value.trim()) {
-      evt.preventDefault();
-      setEmailPlaceholderState(emailInput);
-      emailInput.focus();
-    }
-  });
+    emailInput.value = emailInput.value.trim();
 
-  emailInput.addEventListener('blur', () => {
-    setEmailPlaceholderState(emailInput);
+    if (!emailInput.checkValidity()) {
+      evt.preventDefault();
+      applyEmailError(emailInput);
+      emailInput.focus();
+      return;
+    }
+
+    clearEmailError(emailInput);
   });
 
   emailInput.addEventListener('input', () => {
-    setEmailPlaceholderState(emailInput);
+    if (!emailInput.classList.contains(EMAIL_ERROR_CLASS)) {
+      return;
+    }
+    const trimmed = emailInput.value.trim();
+    if (trimmed && isValidEmailValue(trimmed)) {
+      clearEmailError(emailInput);
+    }
   });
 };
 
