@@ -1,5 +1,42 @@
+.profile {
+    @media (min-width: $tablet-min) and (max-width: $tablet-max) {
+        position: relative;
+        z-index: 3;
+        background-color: $basic-grey;
+        border-radius: 0 0 60px 60px;
+        pointer-events: none;
+
+        & * {
+            pointer-events: auto;
+        }
+    }
+
+    @media (max-width: $mobile-max) {
+        position: relative;
+        z-index: 3;
+        background-color: $basic-grey;
+        border-radius: 0 0 28px 28px;
+        margin-bottom: -55px;
+        pointer-events: none;
+
+        & * {
+            pointer-events: auto;
+        }
+    }
+}
+
 .profile__wrapper {
     margin-bottom: 64px;
+
+    @media (min-width: $tablet-min) and (max-width: $tablet-max) {
+        margin-bottom: 4px;
+        padding-bottom: 61px;
+    }
+
+    @media (max-width: $mobile-max) {
+        margin-bottom: 26px;
+        padding-bottom: 26px;
+    }
 }
 
 .profile__title {
@@ -11,6 +48,19 @@
     text-align: start;
     margin-bottom: 105px;
     padding-left: 6.5%;
+
+    @media (max-width: $tablet-max) {
+        padding: 0;
+        text-align: center;
+        line-height: 0.92;
+        margin-bottom: 29px;
+    }
+
+    @media (max-width: $mobile-max) {
+        font-size: 37px;
+        line-height: 28px; 
+        margin-bottom: -5px;
+    }
 }
 
 .profile__container {
@@ -18,6 +68,19 @@
     display: grid;
     grid-template-columns: minmax(0, 52%) minmax(0, 1fr);
     gap: 48px;
+
+    @media (max-width: $tablet-max) {
+        grid-template-columns: minmax(0, 71%) minmax(0, 1fr);
+        gap: 0;
+    }
+
+    @media (max-width: $mobile-max) {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "profile-list"
+            "profile-price"
+            "profile-button";
+    }
 }
 
 .profile__info {
@@ -30,6 +93,16 @@
     min-width: 0;
     padding-left: 15px;
     margin-top: 62px;
+
+    @media (max-width: $tablet-max) {
+        padding: 0;
+        margin-top: 39px;
+        gap: 22px;
+    }
+
+    @media (max-width: $mobile-max) {
+        display: contents;
+    }
 }
 
 .profile__list {
@@ -51,6 +124,12 @@
             right: -453px;
             height: 1px;
             background-color: #e1e3e9;
+            pointer-events: none;
+
+            @media (max-width: $mobile-max) {
+                left: 0;
+                right: 52px;
+            }
         }
     }
 
@@ -63,6 +142,13 @@
             right: -453px;
             height: 1px;
             background-color: #e1e3e9;
+            pointer-events: none;
+
+
+            @media (max-width: $mobile-max) {
+                left: 0;
+                right: 52px;
+            }
         }
     }
 
@@ -77,6 +163,17 @@
     .profile__item:nth-child(3) .profile__number {
         background-color: $basic-blue-medium;
     }
+
+    @media (max-width: $tablet-max) {
+        gap: 5px;
+    }
+
+    @media (max-width: $mobile-max) {
+        align-items: unset;
+        gap: 11px;
+        grid-area: profile-list;
+        margin: 39px 0 42px;
+    }
 }
 
 .profile__view {
@@ -84,10 +181,41 @@
     gap: 25px;
     flex-direction: row;
     align-items: center;
+
+    @media (max-width: $tablet-max) {
+        gap: 22px;
+    }
+
+    @media (max-width: $mobile-max) {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        padding-right: 4px;
+    }
 }
 
-.profile__link.profile__view {
+.profile__button.profile__view {
     gap: 20px;
+}
+
+.profile__info > .profile__button {
+    @media (max-width: $mobile-max) {
+        grid-area: profile-button;
+    }
+}
+
+.profile__button{
+    &:hover {
+        opacity: 0.7;
+    }
+
+    &:active {
+        opacity: 0.3;
+    }
+
+    @media (max-width: $mobile-max) {
+        padding: 0 0 0 10px;
+        margin: auto;
+    }
 }
 
 .profile__number {
@@ -102,6 +230,18 @@
     align-items: center;
     justify-content: center;
     background-color: $basic-grey-light;
+
+    @media (max-width: $tablet-max) {
+        width: 68px;
+        height: 68px;
+    }
+
+    @media (max-width: $mobile-max) {
+        width: 37px;
+        height: 35px;
+        font-size: 16px;
+        line-height: 16px;
+    }
 }
 
 .profile__text {
@@ -109,20 +249,42 @@
     line-height: 28px;
     color: $special-grey;
     transform: translateY(5px);
+
+    @media (max-width: $mobile-max) {
+        font-size: 16px;
+        line-height: 16px;
+    }
 }
 
-.profile__link-icon {
+.profile__button-icon {
     background-image: url("../../icons/button-profile-icon.svg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: 29px 28px;
+
+    @media (max-width: $mobile-max) {
+        display: none;
+    }
 }
 
-.profile__link-text {
+.profile__button-text {
     font-weight: 700;
     font-size: 20px;
     line-height: 20px;
     color: $special-blue-darkest;
+
+    @media (max-width: $mobile-max) {
+        font-size: 16px;
+        line-height: 16px;
+    }
+}
+
+.profile__price {
+    @media (max-width: $mobile-max) {
+        grid-area: profile-price;
+        padding: 0 3px;
+        margin-bottom: 26px;
+    }
 }
 
 .profile__price-container {
@@ -133,14 +295,33 @@
     background-color: $special-background-fellow-travelers;
     padding: 62px 47px 65px 84px;
     border-radius: 20px;
+    overflow: hidden;
     position: relative;
     z-index: 3;
     justify-content: space-between;
+
+    @media (max-width: $tablet-max) {
+        flex-direction: column;
+        padding: 2px 30px 14px;
+
+        picture {
+            align-self: center;
+        }
+    }
+
+    @media (max-width: $mobile-max) {
+        flex-direction: row;
+        padding: 0 0 4px;
+    }
 }
 
 .profile__price-text {
     text-align: center;
     margin: 22px 0;
+
+    @media (max-width: $mobile-max) {
+        margin: 17px 15px;
+    }
 }
 
 .profile__price-title {
@@ -149,6 +330,18 @@
     line-height: 28px;
     font-variant: all-small-caps;
     margin-bottom: 26px;
+
+    @media (max-width: $tablet-max) {
+        font-size: 28px;
+        line-height: 28px; 
+        margin-bottom: 20px;
+    }
+
+    @media (max-width: $mobile-max) {
+        font-size: 20px;
+        line-height: 16px; 
+        margin-bottom: 25px;
+    }
 }
 
 .profile__price-list {
@@ -158,4 +351,30 @@
     display: flex;
     flex-direction: column;
     gap: 13px;
+
+    @media (max-width: $tablet-max) {
+        font-size: 24px;
+        gap: 10px;
+    }
+
+    @media (max-width: $mobile-max) {
+        font-size: 16px;
+        line-height: 16px; 
+        text-align: left;
+        gap: 3px;
+    }
+}
+
+.profile__rates-img {
+    @media (max-width: $tablet-max) {
+        width: 100px;
+        height: 100px;
+        margin-top: 8px;
+    }
+
+    @media (max-width: $mobile-max) {
+        width: 81px;
+        height: 81px;
+        margin-right: 19px;
+    }
 }

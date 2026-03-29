@@ -8,6 +8,12 @@ include mixins/svg.pug
     cycle: { w: 25, h: 25 },
     foot: { w: 21, h: 24 },
   };
+  const transportIconText = {
+    plane: 'Самолёт',
+    bus: 'Автобус',
+    cycle: 'Велосипед',
+    foot: 'Пешком',
+  };
   const countryFlagBasename = {
     thailand: 'thailand-flag',
     czech: 'czech-flag',
@@ -33,83 +39,89 @@ include mixins/svg.pug
       - const levelProgress = Math.min(100, Math.max(0, Number(person.level)));
       - const levelRingDashOffset = levelRingC * (1 - levelProgress / 100);
       li.fellow-travelers__people-item
-        .fellow-travelers__photo-container
-          .fellow-travelers__photo-image
-            picture
-              source(
-                srcset=`${person.image.webp1x} 1x, ${person.image.webp2x} 2x`
-                type="image/webp"
-              )
-              source(
-                srcset=`${person.image.png1x} 1x, ${person.image.png2x} 2x`
-                type="image/png"
-              )
-              img.fellow-travelers__photo-image-picture(src=person.image.png1x alt=`${person.name}`)
-            .fellow-travelers__photo-level-container
-              span.fellow-travelers__photo-image-level
-                svg.fellow-travelers__photo-image-level-ring(
-                  width=levelRingSize
-                  height=levelRingSize
-                  viewBox=`0 0 ${levelRingSize} ${levelRingSize}`
-                  aria-hidden="true"
-                  focusable="false"
+        a.fellow-travelers__people-link(href="#")
+          .fellow-travelers__photo-container
+            .fellow-travelers__photo-image
+              picture
+                source(
+                  srcset=`${person.image.webp1x} 1x, ${person.image.webp2x} 2x`
+                  type="image/webp"
                 )
-                  circle.fellow-travelers__photo-image-level-ring-track(
-                    cx=levelRingSize / 2
-                    cy=levelRingSize / 2
-                    r=levelRingRActual
-                    fill="none"
-                    stroke-width=levelRingStroke
+                source(
+                  srcset=`${person.image.png1x} 1x, ${person.image.png2x} 2x`
+                  type="image/png"
+                )
+                img.fellow-travelers__photo-image-picture(src=person.image.png1x alt=`${person.name}`)
+              .fellow-travelers__photo-level-container
+                span.fellow-travelers__photo-image-level
+                  svg.fellow-travelers__photo-image-level-ring(
+                    width=levelRingSize
+                    height=levelRingSize
+                    viewBox=`0 0 ${levelRingSize} ${levelRingSize}`
+                    aria-hidden="true"
+                    focusable="false"
                   )
-                  circle.fellow-travelers__photo-image-level-ring-progress(
-                    cx=levelRingSize / 2
-                    cy=levelRingSize / 2
-                    r=levelRingRActual
-                    fill="none"
-                    stroke-width=levelRingStroke
-                    stroke-linecap="round"
-                    stroke-dasharray=levelRingC
-                    stroke-dashoffset=levelRingDashOffset
-                    transform=`rotate(-90 ${levelRingSize / 2} ${levelRingSize / 2})`
+                    circle.fellow-travelers__photo-image-level-ring-track(
+                      cx=levelRingSize / 2
+                      cy=levelRingSize / 2
+                      r=levelRingRActual
+                      fill="none"
+                      stroke-width=levelRingStroke
+                    )
+                    circle.fellow-travelers__photo-image-level-ring-progress(
+                      cx=levelRingSize / 2
+                      cy=levelRingSize / 2
+                      r=levelRingRActual
+                      fill="none"
+                      stroke-width=levelRingStroke
+                      stroke-linecap="round"
+                      stroke-dasharray=levelRingC
+                      stroke-dashoffset=levelRingDashOffset
+                      transform=`rotate(-90 ${levelRingSize / 2} ${levelRingSize / 2})`
+                    )
+                  span.fellow-travelers__photo-image-level-inner
+                    span.fellow-travelers__photo-image-level-value= person.level
+                    span.fellow-travelers__photo-image-level-label level
+          .fellow-travelers__person-card
+            .fellow-travelers__person-icon-flag
+              ul.fellow-travelers__photo-flag-list.list-reset
+                each countryCode in person.country
+                  - const flagBase = countryFlagBasename[countryCode] ?? countryCode;
+                  - const webp1x = `images/${flagBase}@1x.webp`;
+                  - const webp2x = `images/${flagBase}@2x.webp`;
+                  - const png1x = `images/${flagBase}@1x.png`;
+                  - const png2x = `images/${flagBase}@2x.png`;
+                  - const flagAlt = `Флаг: ${countryFlagAlt[countryCode] || countryCode}`;
+                  li.fellow-travelers__photo-flag-item(
+                    data-tooltip=countryFlagAlt[countryCode] || countryCode
                   )
-                span.fellow-travelers__photo-image-level-inner
-                  span.fellow-travelers__photo-image-level-value= person.level
-                  span.fellow-travelers__photo-image-level-label level
-        .fellow-travelers__person-card
-          .fellow-travelers__person-icon-flag
-            ul.fellow-travelers__photo-flag-list.list-reset
-              each countryCode in person.country
-                - const flagBase = countryFlagBasename[countryCode] ?? countryCode;
-                - const webp1x = `images/${flagBase}@1x.webp`;
-                - const webp2x = `images/${flagBase}@2x.webp`;
-                - const png1x = `images/${flagBase}@1x.png`;
-                - const png2x = `images/${flagBase}@2x.png`;
-                - const flagAlt = `Флаг: ${countryFlagAlt[countryCode] || countryCode}`;
-                li.fellow-travelers__photo-flag-item
-                  picture
-                    source(
-                      srcset=`${webp1x} 1x, ${webp2x} 2x`
-                      type="image/webp"
-                    )
-                    source(
-                      srcset=`${png1x} 1x, ${png2x} 2x`
-                      type="image/png"
-                    )
-                    img.fellow-travelers__photo-flag-picture(src=png1x alt=flagAlt)
+                    picture
+                      source(
+                        srcset=`${webp1x} 1x, ${webp2x} 2x`
+                        type="image/webp"
+                      )
+                      source(
+                        srcset=`${png1x} 1x, ${png2x} 2x`
+                        type="image/png"
+                      )
+                      img.fellow-travelers__photo-flag-picture(src=png1x alt=flagAlt)
 
-          .fellow-travelers__person-text
-            .fellow-travelers__person-container-name
-              span.fellow-travelers__person-name-status(class=person.defaultChecked && 'fellow-travelers__person-name-status--online')
-              .fellow-travelers__person-name= person.name
-            .fellow-travelers__person-about!= person.about
-            .fellow-travelers__person-container-transport
-              ul.fellow-travelers__transport.list-reset
-                each kind in transportKinds
-                  - const meta = transportIconMeta[kind]
-                  - const isTransportChecked = person.transport.includes(kind)
-                  li.fellow-travelers__transport-item(class=isTransportChecked && 'fellow-travelers__transport-item--checked')
-                    span.fellow-travelers__transport-icon(
-                      class=`fellow-travelers__transport-icon--${kind}`
-                      style=`width:${meta.w}px;height:${meta.h}px`
-                      aria-hidden="true"
+            .fellow-travelers__person-text
+              .fellow-travelers__person-container-name
+                span.fellow-travelers__person-name-status(class=person.defaultChecked && 'fellow-travelers__person-name-status--online')
+                .fellow-travelers__person-name= person.name
+              .fellow-travelers__person-about!= person.about
+              .fellow-travelers__person-container-transport
+                ul.fellow-travelers__transport.list-reset
+                  each kind in transportKinds
+                    - const meta = transportIconMeta[kind]
+                    - const isTransportChecked = person.transport.includes(kind)
+                    li.fellow-travelers__transport-item(
+                      class=isTransportChecked && 'fellow-travelers__transport-item--checked'
+                      data-tooltip=transportIconText[kind]
                     )
+                      span.fellow-travelers__transport-icon(
+                        class=`fellow-travelers__transport-icon--${kind}`
+                        style=`width:${meta.w}px;height:${meta.h}px`
+                        aria-hidden="true"
+                      )

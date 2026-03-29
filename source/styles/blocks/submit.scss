@@ -3,6 +3,20 @@
     background-color: $special-background-fellow-travelers;
     border-radius: 0 0 61px 61px;
     z-index: 2;
+
+    @media (min-width: $tablet-min) and (max-width: $tablet-max) {
+        z-index: 2;
+        margin-bottom: -61px;
+        pointer-events: none;
+
+        & * {
+            pointer-events: auto;
+        }
+    }
+
+    @media (max-width: $mobile-max) {
+        border-radius: 0 0 28px 28px;
+    }
 }
 
 .submit__wrapper {
@@ -12,6 +26,17 @@
     text-align: center;
     color: $special-white;
     padding: 175px 0 103px;
+
+    @media (min-width: $tablet-min) and (max-width: $tablet-max) {
+        padding: 144px 0 58px;
+        gap: 73px;
+        margin-top: -60px;
+    }
+
+    @media (max-width: $mobile-max) {
+        padding: 53px 0 47px;
+        gap: 30px;
+    }
 }
 
 .submit__container-text {
@@ -20,11 +45,31 @@
     gap: 46px;
     text-align: center;
     align-items: center;
+
+    @media (max-width: $tablet-max) {
+        gap: 42px;
+    }
+
+    @media (max-width: $mobile-max) {
+        gap: 18px;
+    }
 }
 
 .submit__title {
     font-size: 95px;
     line-height: 45px;
+
+    @media (max-width: $tablet-max) {
+        font-size: 75px;
+        font-variant: all-small-caps;
+    }
+
+    @media (max-width: $mobile-max) {
+        font-size: 24px;
+        line-height: 24px;
+        font-variant: normal;
+        padding-left: 8px;
+    }
 }
 
 .submit__text {
@@ -33,7 +78,26 @@
     line-height: 31px;
     text-align: center;
     width: 43vw;
-}   
+
+    @media (max-width: $tablet-max) {
+        font-size: 24px;
+        width: 100%;
+    }
+
+    @media (max-width: $mobile-max) {
+        font-size: 13px;
+        line-height: 22px;
+        width: 63vw;
+    }
+}
+
+.submit__text-break {
+    display: none;
+
+    @media (min-width: $tablet-min) {
+        display: inline;
+    }
+}
 
 .submit__link {
     font-weight: 300;
@@ -43,6 +107,24 @@
     text-decoration: underline;
     text-decoration-skip-ink: none;
     color: $basic-blue-medium;
+
+    &:hover {
+        color: #4d99d6;
+    }
+
+    &:active {
+        color: #4d99d6;
+        opacity: 0.3;
+    }
+
+    @media (max-width: $tablet-max) {
+        font-size: 24px;
+    }
+
+    @media (max-width: $mobile-max) {
+        font-size: 13px;    
+        line-height: 22px;
+    }
 }
 
 .submit__form {
@@ -50,14 +132,54 @@
     max-width: 1180px;
     width: 100%;
     align-self: center;
-    grid-template-columns: 72% 28%;
+    grid-template-columns: 77% 23%;
     justify-content: center;
     margin-bottom: 25px;
+
+    @media (max-width: $tablet-max) {
+        grid-template-columns: 78% 12%;
+        margin-bottom: 5px;
+    }
+
+    @media (max-width: $mobile-max) {
+        grid-template-columns: 80% 22%;
+        padding-right: 6px;
+        margin-bottom: 0;
+    }
 }
 
 .submit__input {
     border-color: transparent;
     border-radius: 20px 0 0 20px;
+    box-sizing: border-box;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 24px;
+    color: $special-white;
+    padding: 0 36px;
+
+    &:hover {
+        background-color: $basic-grey;
+    }
+
+    &:active {
+        background-color: transparent;
+        border: 4px solid $special-white;
+    }
+    
+    &:focus,
+    &:focus-visible {
+        background-color: transparent;
+        border: 4px solid $special-white;
+        outline: none;
+        box-shadow: none;
+    }
+
+    @media (max-width: $mobile-max) {
+        border-radius: 10px 0 0 10px;
+        padding: 0 23px;
+    }
+
 }
 
 .submit__input::placeholder {
@@ -67,14 +189,36 @@
     line-height: 24px;
     color: $special-grey;
     opacity: 0.3;
-    padding: 28px 36px;
+
+    @media (max-width: $mobile-max) {
+        font-size: 18px;
+        line-height: 18px;
+    }
 }
 
 .button__wrapper.submit__form__button-container {
     border-radius: 0 20px 20px 0;
 
     @media (max-width: $mobile-max) {
-        border-radius: 20px;
+        border-radius: 0 10px 10px 0;
+    }
+}
+
+.button__link.submit__form__button-container {
+    @media (max-width: $tablet-max) {
+        justify-content: center;
+        padding: 34px 33px 32px 35px;
+    }
+
+    @media (max-width: $mobile-max) {
+        padding:  24px 21px 24px 17px;
+    }
+    }
+
+    .button__text {
+        @media (max-width: $tablet-max) {
+            display: none;
+
     }
 }
 
@@ -83,12 +227,33 @@
     flex-shrink: 0;
     gap: 105px;
     margin-left: 15.6vw;
+
+    @media (max-width: $tablet-max) {
+        flex-direction: column;
+        margin-left: 35px;
+        gap: 2px;
+    }
+
+    @media (max-width: $mobile-max) {
+        margin-left: -3px;
+    }
 }
 
 .submit .submit-contacts__item {
     display: flex;
     align-items: center;
     gap: 32px;
+
+    @media (max-width: $tablet-max) {
+        gap: 22px;
+        align-items: baseline;
+    }
+
+    @media (max-width: $mobile-max) {
+        align-items: center;
+        gap: 16px;
+    }
+
 }
 
 .submit .submit-contacts__link {
@@ -101,21 +266,60 @@
     border-radius: 50%;
     background-color: $basic-blue-darkest;
     color: $basic-blue-medium;
+
+    @media (max-width: $tablet-max) {
+        width: 68px;
+        height: 68px;
+    }
+
+    @media (max-width: $mobile-max) {
+        width: 45px;
+        height: 45px;
+    }
 }
 
 .submit svg.submit-contacts__icon--phone-mobile {
     width: 36px;
     height: 34px;
+
+    @media (max-width: $tablet-max) {
+        width: 27px;
+        height: 25px;
+    }
+
+    @media (max-width: $mobile-max) {
+        width: 18px;
+        height: 17px;
+    }
 }
 
 .submit svg.submit-contacts__icon--email {
     width: 36px;
     height: 25px;
+
+    @media (max-width: $tablet-max) {
+        width: 30px;
+        height: 20px;
+    }
+
+    @media (max-width: $mobile-max) {
+        width: 18px;
+        height: 12px;
+    }
 }
+
 .submit__contacts {
     display: flex;
     flex-direction: column;
     gap: 43px;
+
+    @media (max-width: $tablet-max) {
+        gap: 23px;
+    }
+
+    @media (max-width: $mobile-max) {
+        gap: 18px;
+    }
 }
 
 .submit .submit-contacts__text {
@@ -124,6 +328,20 @@
     font-weight: 700;
     color: #cce5fa;
     text-transform: uppercase;
+
+    &:hover {
+        color: #4d99d6;
+    }
+
+    &:active {
+        color: #4d99d6;
+        opacity: 0.3;
+    }
+
+    @media (max-width: $mobile-max) {
+        font-size: 16px;
+        line-height: 22px; 
+    }
 }
 
 .submit__contacts-text {
@@ -132,6 +350,22 @@
     line-height: 30px;
     text-align: center;
     letter-spacing: 0.01em;
+
+    @media (max-width: $tablet-max) {
+        font-size: 24px;
+        line-height: 30px;
+    }
+
+    @media (max-width: $mobile-max) {
+        font-size: 14px;
+        line-height: 22px;
+    }
+
+    &-break {
+        @media (min-width: $tablet-min) {
+            display: none;
+        }
+    }
 }
 
 

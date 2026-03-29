@@ -7,8 +7,11 @@ import filterBar from './filter-bar.js';
 import filterRange from './filter-range.js';
 import alphabetFilter from './alphabet-filter.js';
 import { initYandexMap } from './yandex-map.js';
+import { initProfileModal } from './modal.js';
+import { initSubmitValidation } from './submit-validation.js';
 
 document.addEventListener('DOMContentLoaded', () => {
+  initProfileModal();
   initNavMenu();
   initAllCardsCarousels();
   progressBar();
@@ -16,4 +19,5 @@ document.addEventListener('DOMContentLoaded', () => {
   filterRange();
   alphabetFilter();
   initYandexMap();
+  initSubmitValidation();
 });

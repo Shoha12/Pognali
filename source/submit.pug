@@ -5,13 +5,19 @@ section.submit
         .submit__wrapper 
             .submit__container-text
                 h2.submit__title Заинтересовались?
-                p.submit__text Зарегистрируйтесь, это быстро и бесплатно! Уже зарегистрированы? Тогда скорее 
+                p.submit__text
+                    | Зарегистрируйтесь, это быстро и бесплатно!
+                    br
+                    | Уже зарегистрированы? Тогда скорее&nbsp;
                     a.submit__link.link-reset(href='#') авторизуйтесь.
-            form.submit__form.form(action="#")
-                input.submit__input(type="email" name="email" placeholder="E-mail" required)
-                +buttonLink('#', 'Регистрация', 'submit__form__button-container')
+            form.submit__form.form(action="#" novalidate)
+                input.submit__input(type="email" name="email" placeholder="E-mail" required autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false")
+                +buttonSubmit('Регистрация', 'submit__form__button-container')
             .submit__contacts   
-                p.submit__contacts-text Остались вопросы? Мы с радостью на них ответим! 
+                p.submit__contacts-text
+                    | Остались вопросы?
+                    br.submit__contacts-text-break
+                    | Мы с радостью на них ответим!
                 include contacts-submit.pug
 
                            

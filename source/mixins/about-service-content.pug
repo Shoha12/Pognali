@@ -1,0 +1,10 @@
+mixin aboutServiceContent(title, aboutText, descriptionLead, descriptionBreakText, buttonHref, buttonText, buttonContainerClass)
+  .about__container-text
+    h2.about__title.title= title
+    p.about__text.text!= aboutText
+  p.about__description.text.
+    #{descriptionLead}
+    <span class="about__description-break">#{descriptionBreakText}</span>
+  div(class=buttonContainerClass)
+    +buttonLink(buttonHref, buttonText, '')
+

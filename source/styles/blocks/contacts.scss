@@ -12,6 +12,22 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  
+  &:hover {
+    .contacts__link {
+      background-color: #468ac1;
+    }
+  }
+
+  &:active {
+    .contacts__link {
+      background-color: #4d99d6;
+    }
+
+    .contacts__icon {
+      opacity: 0.3;
+    }
+  }
 
   @media (max-width: $tablet-max) {
     gap: 15px;

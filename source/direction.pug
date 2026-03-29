@@ -1,5 +1,4 @@
 include mixins/about.pug
-include mixins/description.pug
 include mixins/button.pug
 
 
@@ -16,4 +15,5 @@ section.direction
                     )
             div.direction__container-cards
                 include cards-block
-            +buttonLink('catalog.html', 'Показать все', 'direction__button-container')
+            if showDirectionButton !== false
+                +buttonLink('catalog.html', 'Показать все', 'direction__button-container')

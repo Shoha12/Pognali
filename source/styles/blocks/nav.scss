@@ -154,3 +154,13 @@
     right: 0;
   }
 }
+
+.nav__item {
+    &:hover {
+      color: $hover-color;
+    }
+
+    &:active {
+      opacity: 0.3;
+    }
+  }

@@ -1,0 +1,16 @@
+include mixins/button.pug
+include mixins/about-service-content.pug
+
+section.about
+    div.section__container
+        .about__wrapper
+            +aboutServiceContent(
+                'О сервисе',
+                'Любое путешествие веселее с попутчиками, которые на одной волне с тобой! Делитесь своими идеями путешествий и черпайте вдохновение в чужих.',
+                'А если найдете кого-то близкого по',
+                'духу - скорее зовите в совместный трип!',
+                '#',
+                'Подробнее',
+                'about__button-container'
+            )
+            

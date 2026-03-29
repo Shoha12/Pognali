@@ -4,6 +4,12 @@
     'Вывод на первых позициях',
     'Кастомный цвет карточки',
   ];
+  const profileModalPriceFeatures = [
+    { text: 'Реклама у блоггера', price: '300 000 руб./пост' },
+    { text: 'Накрутка подписчиков', price: 'от 1 руб./шт.' },
+    { text: 'Лайки от ботов', price: 'от 20 коп./лайк' },
+    { text: 'Ваш продакт-плейсмент', price: 'Индивидуально' },
+  ];
 
 section.profile 
     div.section__container
@@ -17,9 +23,9 @@ section.profile
                                 span.profile__number= index + 1
                                 p.profile__text= feature
                     .profile__button
-                        a.profile__link.profile__view.link-reset(href='#' aria-label='Показать тарифы для бизнеса')
-                            span.profile__number.profile__link-icon
-                            p.profile__link-text Показать тарифы для бизнеса
+                        button.profile__button.profile__view.button-reset(type='button' aria-label='Показать тарифы для бизнеса' data-modal-open='profile')
+                            span.profile__number.profile__button-icon
+                            p.profile__button-text Показать тарифы для бизнеса
                 .profile__price
                     .profile__price-container
                         .profile__price-text
@@ -37,3 +43,15 @@ section.profile
                                 type="image/png"
                             )
                             img.profile__rates-img(src="images/rates@1x.png" alt="Тарифы" width="200" height="202")
+
+.profile__modal.modal(role='dialog' aria-modal='true' aria-labelledby='profile-modal-title' data-modal='profile')
+    .modal__wrapper
+        .modal__container
+            .modal__content
+                h2#profile-modal-title.modal__title Бизнес-тарифы
+                ul.modal__list
+                    each feature in profileModalPriceFeatures
+                        li.modal__item
+                            p.modal__text= feature.text
+                            p.modal__price= feature.price
+            button.modal__button.button-reset(type='button') Закрыть окно          

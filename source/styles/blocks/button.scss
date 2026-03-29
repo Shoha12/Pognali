@@ -4,11 +4,16 @@
     background-color: $basic-blue-medium;
     box-sizing: border-box;
     cursor: pointer;
+    width: 100%;
+
+    &:hover {
+        background-color: #4d99d6;
+    }
 
     @media (max-width: $mobile-max) {   
         display: block;
         width: 100%;
-        border-radius: 20px;
+        border-radius: 10px;
     }
 }
 
@@ -19,18 +24,22 @@
     font-size: 24px;
     line-height: 24px;
     color: $special-blue-darkest;
-    padding: 28px 39px;
+    padding: 28px 34px;
     width: auto;
     align-self: flex-start;
     justify-content: space-between;
     width: 100%;
 
+    &:active {
+        opacity: 0.3;
+    }
+
     @media (max-width: $tablet-max) {
-        padding: 29px 19px 27px 35px;
+        padding: 30px 18px 27px 34px;
     }
 
     @media (max-width: $mobile-max) {  
-        padding: 28px 30px 27px 31px; 
+        padding: 28px 35px 27px 33px;
         align-self: center;
         display: flex;
         width: 100%;
@@ -43,4 +52,12 @@
       line-height: 18px;
       padding: 23px 22px;
     }
-  }
+}
+
+.button__link.fellow-travelers__button-container {
+    @media (max-width: $mobile-max) {
+        font-size: 18px;
+        line-height: 18px;
+        padding: 23px 22px;
+    }
+}

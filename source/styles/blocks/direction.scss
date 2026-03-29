@@ -5,37 +5,49 @@ $direction-desktop-aside-inline: clamp(77px, 4.8vw + 28px, 97px);
     z-index: 0;
     overflow-x: clip;
 
+    @media (min-width: $desktop-min) {
+        z-index: 1;
+        pointer-events: none;
+
+        * {
+            pointer-events: auto;
+        }
+    }
+
     @media (max-width: $tablet-max) {
-        margin-top: -40px;
+        margin-top: 80px;
         background-color: $basic-grey;
-        border-radius: 0 0 40px 40px;
+        border-radius: 0 0 60px 60px;
+        z-index: 1;
     }
 
     @media (max-width: $mobile-max) {
-        margin-top: -50px;
+        border-radius: 0 0 28px 28px;
     }
 }
 
 .direction__wrapper {
-   display: grid;
-   grid-template-columns: minmax(0, 52%) minmax(0, 1fr);
-   column-gap: clamp(8px, 0.8vw + 4px, 20px);
-   grid-template-areas:
-      "cards aside"
-      "cards button";
+    margin-top: -45px;
+    display: grid;
+    grid-template-columns: minmax(0, 52%) minmax(0, 1fr);
+    column-gap: clamp(8px, 0.8vw + 4px, 20px);
+    grid-template-areas:
+        "cards aside"
+        "cards button";
 
-   @media (max-width: $tablet-max) {
-      grid-template-columns: minmax(0, 1fr);
-      column-gap: 0;
-      grid-template-areas:
-         "text"
-         "cards"
-         "button";
-   }
-
-    @media (max-width: $mobile-max) {
-        padding-bottom: 54px;
+    @media (max-width: $tablet-max) {
+        grid-template-columns: minmax(0, 1fr);
+        column-gap: 0;
+        grid-template-areas:
+            "text"
+            "cards"
+            "button";
+            padding-bottom: 79px;
     }
+
+        @media (max-width: $mobile-max) {
+            padding-bottom: 54px;
+        }
 }
 
 .direction__aside {
@@ -72,16 +84,12 @@ $direction-desktop-aside-inline: clamp(77px, 4.8vw + 28px, 97px);
 
     @media (max-width: $tablet-max) {
         grid-area: text;
-        margin:
-            34px
-            clamp(16px, 9vw + 44px, 73px)
-            clamp(4px, 0.8vw + 4px, 10px)
-            clamp(16px, 5.5vw + 31px, 73px);
+        margin: 0 0 107px;
+        padding: 0 33px;
     }
 
     @media (max-width: $mobile-max) {
-        margin: 92px auto 84px;
-        padding: 0 25px;
+        margin: 7px 0 84px 8px;
     }
 }
 
@@ -172,26 +180,22 @@ $direction-desktop-aside-inline: clamp(77px, 4.8vw + 28px, 97px);
     transform: translateX(8px);
 
     @media (max-width: $tablet-max) {
+        display: block;
+        width: 100%;
+        max-width: 90%;
+        min-width: 0;
         margin-left: 0;
         margin-right: 0;
         margin-inline: auto;
-        justify-self: center;
         margin-top: -102px;
-    }
-
-    @media (max-width: $tablet-max) {
-        display: block;
-        width: 100%;
-        max-width: 81%;
-        min-width: 0;
         justify-self: stretch;
-        margin-inline: auto;
         transform: none;
     }
 
     @media (max-width: $mobile-max) {
         margin-top: 0;
-        max-width: 84%;
+        margin: 0;
+        min-width: 100%;
     }
 }
 

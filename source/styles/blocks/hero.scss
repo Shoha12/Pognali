@@ -8,10 +8,10 @@ $webp-support: 'data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoBAAEAA
     background-position: center;
     background-position: 0 -145px;
     width: 100%;
-    min-height: 597px;
+    min-height: 601px;
     margin-top: -1px;
     margin-bottom: -70px;
-    border-radius: 0 0 40px 40px;
+    border-radius: 0 0 $border-radius-desktop $border-radius-desktop;
     z-index: 10;
 
 
@@ -29,14 +29,15 @@ $webp-support: 'data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoBAAEAA
 
     @media (max-width: $tablet-max) {
         background-position: -328px -122px;
-        height: 898px;
+        height: 776px;
+        border-radius: 0;
     }
 
     @media (max-width: $mobile-max) {
         background-image: url("../../images/hero-background-mobile@1x.png");
         background-position: 0px -88px;
-        max-height: 538px;
-        min-height: 538px;
+        max-height: 577px;
+        min-height: 577px;
         z-index: 100;
         border-radius: 0;
 
@@ -80,22 +81,19 @@ $webp-support: 'data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoBAAEAA
                 background-image: url("../../images/traveller-illustration-desktop@2x.webp");
             }
         }
-    }
 
-    // @media (min-width: $desktop-max) {
-    //     &::after {
-    //         top: -43px;
-    //         right: 275px;
-    //     }
-    // }
+        @media (max-width: 1145px) {
+            right: -1.5%;
+        }
+    }
 
     @media (max-width: $tablet-max) {
         &::after {
             background-image: url("../../images/traveller-illustration-tablet@1x.png");
             width: 437px;
             height: 530px;
-            top: 166px;
-            right: 46px;
+            top: 17%;
+            right: 1%;
 
             @media (min-resolution: 2dppx) {
                 background-image: url("../../images/traveller-illustration-tablet@2x.png");
@@ -116,8 +114,8 @@ $webp-support: 'data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoBAAEAA
             background-image: url("../../images/traveller-illustration-mobile@1x.png");
             width: 192px;
             height: 255px;
-            top: 170px;
-            right: 43px;
+            top: 209px;
+            right: 17px;
 
             @media (min-resolution: 2dppx) {
                 background-image: url("../../images/traveller-illustration-mobile@2x.png");
@@ -143,14 +141,14 @@ $webp-support: 'data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoBAAEAA
     @media (max-width: $tablet-max) {
         font-size: 60px;
         line-height: 70px; 
-        padding: 28px 54px;
+        padding: 26px 14px;
         margin-bottom: 430px;
     }
 
     @media (max-width: $mobile-max) {
         font-size: 36px;
         line-height: 40px;
-        padding: 12px 25px;
-        margin-bottom: 277px;
+        padding: 51px 0 0;
+        margin-bottom: 289px;
     }
 }

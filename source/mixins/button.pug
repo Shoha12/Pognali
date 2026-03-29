@@ -1,6 +1,14 @@
 include ../mixins/svg.pug
 
 mixin buttonLink(href, text, modifier)
-  div.button__wrapper(class=modifier)
-   a.button__link.link-reset(class=modifier href=href)= text
-      +icon('arrow-button', 'button__icon', 11, 13)
+  div.button
+    div.button__wrapper(class=modifier)
+      a.button__link.link-reset(class=modifier href=href)= text
+        +icon('arrow-button', 'button__icon', 11, 13)
+
+mixin buttonSubmit(text, modifier)
+  div.button
+    div.button__wrapper(class=modifier)
+      button.button__link.button-reset(type="submit" class=modifier aria-label=text)
+        span.button__text= text
+        +icon('arrow-button', 'button__icon', 11, 13)

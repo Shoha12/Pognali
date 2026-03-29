@@ -11,6 +11,8 @@ $tablet-max: 1023px;
 $mobile-min: 320px;
 $mobile-max: 767px;
 
+$border-radius-desktop: 60px;
+
 	// Основные цвета
 	$basic-blue: #161c35;
 	$basic-grey: #edeff6;
@@ -32,5 +34,7 @@ $mobile-max: 767px;
 	$special-background-fellow-travelers: #3f4251;
 	$special-blue-darkest: #1d2e5b;
 	$special-blue-transport-checked: #101d41;
+
+	$hover-color: #7ebaeb;
 
 	$instructions-shadow: -6px 0 18px rgba(0, 0, 0, 0.3);

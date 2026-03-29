@@ -1,4 +1,11 @@
 mixin companionCard(card)
+  -
+    const transportTitlesByIconLabel = {
+      icon_plane: 'Самолёт',
+      icon_bus: 'Автобус',
+      icon_bicycle: 'Велосипед',
+      icon_run: 'Пешком',
+    };
   article.companion-card
     .companion-card__desktop
       .companion-card__image-wrapper
@@ -67,9 +74,11 @@ mixin companionCard(card)
               ul.companion-card__transport.list-reset
                 each item in card.transport
                   li.companion-card__transport-item
+                    - const transportTooltip = transportTitlesByIconLabel[item.label] || item.label
                     span.companion-card__transport-button(
                       class={ 'is-active': item.active }
                       aria-label=item.label
+                      data-tooltip=transportTooltip
                     )
                       svg.companion-card__transport-icon(
                         width='25'
@@ -156,9 +165,11 @@ mixin companionCard(card)
               ul.companion-card__mobile-transport.list-reset
                 each item in card.transport
                   li.companion-card__mobile-transport-item
+                    - const transportTooltip = transportTitlesByIconLabel[item.label] || item.label
                     span.companion-card__transport-button(
                       class={ 'is-active': item.active }
                       aria-label=item.label
+                      data-tooltip=transportTooltip
                     )
                       svg.companion-card__transport-icon(
                         width='25'

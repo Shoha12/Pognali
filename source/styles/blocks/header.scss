@@ -5,33 +5,10 @@
   z-index: 4;
 
   &--catalog {
-    position: relative;
     background-color: #192144;
-    padding-bottom: 68px;
+    padding-bottom: 74px;
     border-bottom-left-radius: 50px;
     border-bottom-right-radius: 50px;
-
-    @media(max-width: 1350px) {
-      padding-bottom: 66px;
-    }
-
-    .header__wrapper {
-      @media(max-width: 767px) {
-        padding: 19px 0;
-      }
-    }
-
-    .header__wrapper > .nav .section__container {
-      @media(max-width: 767px) {
-        padding: 0;
-      }
-    }
-
-    .header__wrapper > .nav {
-      @media(max-width: 767px) {
-        right: 0;
-      }
-    }
 
     @media(max-width: 767px) {
       padding-bottom: 13px;
@@ -69,7 +46,7 @@
     --header-brand-gap: 90px;
 
   @media (min-width: $desktop-max) {
-    --header-brand-gap: 85px;
+    --header-brand-gap: 144px;
   }
 
   display: flex;
@@ -82,12 +59,11 @@
 
   @media (max-width: $tablet-max) {
     position: relative;
-    padding: 44px 0;
   }
 
   @media (max-width: $mobile-max) {
     padding: 0;
-    padding-top: 35px;
+    padding-top: 37px;
   }
 }
 
@@ -100,7 +76,7 @@
       content: "";
       position: absolute;
       // Центрируем линию (60px) в зазоре: отступ = (gap − ширина линии) / 2
-      left: calc(100% + (var(--header-brand-gap) - 5px) / 2);
+      left: calc(100% + (var(--header-brand-gap) - 60px) / 2);
       top: 54%;
       transform: translateY(-50%);
       width: 60px;
@@ -129,7 +105,7 @@
 
   @media (max-width: $mobile-max) {
     left: auto;
-    right: 11px;
+    right: 1px;
     transform: none;
     justify-content: flex-end;
   }
@@ -173,42 +149,12 @@
 }
 
 .header__bottom {
-  position: relative;
-  margin-top: 80px;
+  margin-top: 74px;
   padding-left: 66px;
-
-  @media(max-width: 1350px) {
-    margin-top: 93px;
-    padding-left: 36px;
-  }
 
   @media(max-width: 767px) {
     padding-left: 0;
-    margin-top: 41px;
-  }
-
-  &:after {
-    content: '';
-    width: 288px;
-    height: 8px;
-    position: absolute;
-    bottom: -70px;
-    left: 68px;
-    background-color: #4D99D6;
-    border-radius: 4px;
-
-    @media(max-width: 1350px) {
-      background-color: #335D8D;
-      left: 40px;
-    }
-
-    @media(max-width: 767px) {
-      width: 172px;
-      height: 5px;
-      background-color: #fff;
-      left: 3px;
-      bottom: -16px;
-    }
+    margin-top: 62px;
   }
 }
 
@@ -217,11 +163,6 @@
   font-size: 60px;
   font-weight: 700;
   line-height: 60px;
-  font-variant: all-small-caps;
-
-  @media(max-width: 1350px) {
-    font-variant: normal;
-  }
 
   @media(max-width: 767px) {
     font-size: 36px;
