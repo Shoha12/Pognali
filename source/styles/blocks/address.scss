@@ -3,6 +3,9 @@
   z-index: 1;
   margin-top: -54px;
   pointer-events: none;
+  border-radius: 0 0 61px 61px;
+  box-sizing: border-box;
+  background-color: $special-blue-light;
 
   & * {
     pointer-events: auto;
@@ -21,13 +24,18 @@
 }
 
 .address__container {
-  box-sizing: border-box;
-  background-color: $special-blue-light;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 108px 9vw 56px 19.6vw;
-  border-radius: 0 0 61px 61px;
+  padding: 108px 0 56px;
+  max-width: 1440px;
+  margin: auto;
+
+  @media (max-width: $desktop-max) {
+    padding: 108px 9vw 56px 19.6vw;
+  }
+
+
 
   @media (max-width: $tablet-max) {
     flex-direction: column;
