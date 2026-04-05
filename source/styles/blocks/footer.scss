@@ -53,6 +53,8 @@
 
     @media(max-width: 767px) {
       display: block;
+      width: 96px;
+      height: 15px;
     }
   }
 }
@@ -76,6 +78,16 @@
   @media(max-width: 767px) {
     width: 45px;
     height: 45px;
+  }
+
+  &:hover {
+    background-color: #4D99D6;
+  }
+
+  &:active {
+    .footer__social-icon {
+      opacity: 0.3;
+    }
   }
 }
 
