@@ -106,6 +106,15 @@
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
+  transition: 0.3s all ease;
+
+  &:hover {
+    opacity: 0.6;
+  }
+
+  &:active {
+    opacity: 0.3;
+  }
 
   @media(max-width: 1350px) {
     display: block;
@@ -192,6 +201,16 @@
   display: flex;
   align-items: center;
   gap: 12px;
+  cursor: pointer;
+  transition: 0.3s all ease;
+  
+  &:hover {
+    opacity: 0.6;
+  }
+
+  &:active {
+    opacity: 0.3;
+  }
 }
 
 .companions-sidebar__mark {
@@ -302,49 +321,6 @@
 
 .companions-sidebar__transport-button.is-active .companion-card__transport-icon{
   opacity: 1;
-}
-
-.companions-sidebar__transport-button[data-tooltip]::after {
-  content: attr(data-tooltip);
-  position: absolute;
-  left: 50%;
-  top: calc(100% + 10px);
-  transform: translateX(-50%);
-  opacity: 0;
-  transition: opacity 0.15s ease;
-  padding: 8px 12px;
-  background-color: #101D41;
-  color: $special-white;
-  font-size: 14px;
-  line-height: 16px;
-  border-radius: 4px;
-  box-shadow: 0 6px 18px rgba(16, 29, 65, 0.22);
-  white-space: nowrap;
-  pointer-events: none;
-  z-index: 10;
-}
-
-.companions-sidebar__transport-button[data-tooltip]::before {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: calc(100% + 4px);
-  transform: translateX(-50%) rotate(180deg);
-  opacity: 0;
-  transition: opacity 0.15s ease;
-  width: 12px;
-  height: 6px;
-  background-color: #101D41;
-  mask-image: url("../../icons/down.svg");
-  -webkit-mask-image: url("../../icons/down.svg");
-  mask-repeat: no-repeat;
-  -webkit-mask-repeat: no-repeat;
-  mask-position: center;
-  -webkit-mask-position: center;
-  mask-size: contain;
-  -webkit-mask-size: contain;
-  pointer-events: none;
-  z-index: 9;
 }
 
 .companions-sidebar__transport-button[data-tooltip]:hover::after,
@@ -551,6 +527,12 @@
   height: 49px;
   cursor: pointer;
   margin-top: 20px;
+  transition: 0.3s all ease;
+
+  &:active {
+    background-color: #4D99D6;
+    color: rgba($color: #161C35, $alpha: 0.3)
+  }
 
   @media(max-width: 1350px) {
     margin-top: 48px;

@@ -1,8 +1,8 @@
 include mixins/svg
 
 
-mixin footer()
-  footer.footer.footer--index
+mixin footer(isMain = false)
+  footer.footer(class={ 'footer--index': isMain })
     .section__container 
       .footer__wrapper 
         .footer__brand 

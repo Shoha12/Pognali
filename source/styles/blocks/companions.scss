@@ -52,6 +52,19 @@
   margin: 0 auto;
   margin-bottom: 73px;
   cursor: pointer;
+  transition: 0.3s all ease;
+
+  &:hover {
+    .companion__more-icon {
+      opacity: 0.6;
+    }
+  }
+
+  &:active {
+    .companion__more-icon {
+      opacity: 0.3;
+    }
+  }
 
   @media(max-width: 1350px) {
     margin-bottom: 52px;
@@ -120,6 +133,11 @@
   line-height: 20px;
   text-transform: uppercase;
   cursor: pointer;
+  transition: 0.3s all ease;
+
+  &:hover {
+    opacity: 0.6;
+  }
 }
 
 .companions__pagination-link.is-active {
@@ -155,6 +173,15 @@
   background-color: transparent;
   color: #1D2E5B;
   cursor: pointer;
+  transition: 0.3s all ease;
+
+  &:hover {
+    opacity: 0.6;
+  }
+
+  &:active {
+    opacity: 0.3;
+  }
 
   @media(max-width: 767px) {
     display: flex;
