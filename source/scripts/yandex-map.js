@@ -1,7 +1,16 @@
 const YANDEX_MAP_API_KEY = 'bcd385e7-7d30-4cbb-adb6-d091b049e0ad';
 
-/** Центр и метка: широта, долгота (формат API 2.1) */
-const MAP_CENTER = [59.93812, 30.324852];
+/** Точки для карты: название, координаты, текст сообщения */
+const MAP_POINTS = [
+  {
+    name: 'Офис на Большой Конюшенной',
+    coordinates: [59.93812, 30.324852],
+    message: 'ул. Большая Конюшенная, 19/8',
+  },
+];
+
+/** Центр карты: широта, долгота (формат API 2.1) */
+const MAP_CENTER = MAP_POINTS[0].coordinates;
 const MAP_ZOOM = 17;
 
 const MAP_MOBILE_MAX_WIDTH = 767;
@@ -60,15 +69,18 @@ function createMap(container) {
     controls: [],
   });
 
-  const placemark = new window.ymaps.Placemark(
-    MAP_CENTER,
-    {
-      balloonContent: 'ул. Большая Конюшенная, 19/8',
-    },
-    getPlacemarkIconOptions()
-  );
+  MAP_POINTS.forEach((point) => {
+    const placemark = new window.ymaps.Placemark(
+      point.coordinates,
+      {
+        balloonContentHeader: point.name,
+        balloonContent: point.message,
+      },
+      getPlacemarkIconOptions()
+    );
 
-  map.geoObjects.add(placemark);
+    map.geoObjects.add(placemark);
+  });
 
   requestAnimationFrame(() => {
     map.container.fitToViewport();
@@ -79,7 +91,9 @@ function createMap(container) {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(() => {
       map.container.fitToViewport();
-      placemark.options.set(getPlacemarkIconOptions());
+      map.geoObjects.each((geoObject) => {
+        geoObject.options.set(getPlacemarkIconOptions());
+      });
     }, 150);
   };
   window.addEventListener('resize', onResize);

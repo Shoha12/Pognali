@@ -168,7 +168,7 @@ export function startServer () {
   watch(`${PATH_TO_SOURCE}styles/**/*.scss`, series(processStyles));
   watch(`${PATH_TO_SOURCE}scripts/**/*.js`, series(processScripts));
   watch(`${PATH_TO_SOURCE}icons/**/*.svg`, series(createStack, reloadServer));
-  watch(PATHS_TO_STATIC, series(reloadServer));
+  watch(PATHS_TO_STATIC, series(copyStatic, reloadServer));
 }
 
 function reloadServer (done) {
@@ -206,6 +206,7 @@ export function runDev (done) {
       processStyles,
       processScripts,
       createStack,
+      copyStatic,
     ),
     startServer,
   )(done);

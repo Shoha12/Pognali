@@ -9,6 +9,10 @@
 .nav__list {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 100%;
+    min-width: 0;
+    justify-content: center;
     gap: 18px;
     font-weight: 500;
     font-size: 20px;
@@ -164,3 +168,7 @@
       opacity: 0.3;
     }
   }
+
+.nav__link {
+  transition: color 0.3s ease, opacity 0.3s ease;
+}

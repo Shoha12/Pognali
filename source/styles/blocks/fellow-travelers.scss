@@ -47,10 +47,10 @@ $fellow-travelers-card-width-mobile: 270px;
     grid-area: aside;
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: center;
     align-self: stretch;
     min-width: 0;
-    margin: 157px auto -50px;
+    margin: 81px auto 0;
     text-align: start;
 
     @media (max-width: 1330px) {
@@ -251,6 +251,7 @@ $fellow-travelers-card-width-mobile: 270px;
     grid-area: button;
     margin-left: -4px;
     transform: translateX(8px);
+    margin-top: 34px;
 
     @media (max-width: 1330px) {
         display: block;
