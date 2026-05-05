@@ -246,12 +246,13 @@
 }
 
 .submit .submit-contacts {
-    display: flex;
-    flex-shrink: 0;
-    gap: 105px;
-    margin-left: 15.6vw;
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    column-gap: 105px;
+    margin-left: 225px;
 
     @media (max-width: 1330px) {
+        display: flex;
         flex-direction: column;
         gap: 25px;
     }
@@ -267,10 +268,18 @@
     }
 }
 
+.submit .submit-contacts__column {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    min-width: 0;
+}
+
 .submit .submit-contacts__item {
     display: flex;
     align-items: center;
     gap: 32px;
+    min-width: 0;
 
     @media (max-width: $tablet-max) {
         gap: 22px;
@@ -284,10 +293,19 @@
 
 }
 
+.submit .submit-contacts__item--phone {
+    grid-column: 1;
+}
+
+.submit .submit-contacts__item--email {
+    grid-column: 2;
+}
+
 .submit .submit-contacts__link {
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
     flex-shrink: 0;
     width: 90px;
     height: 90px;
@@ -356,6 +374,9 @@
     font-weight: 700;
     color: #cce5fa;
     text-transform: uppercase;
+    cursor: pointer;
+    min-width: 0;
+    overflow-wrap: anywhere;
 
     &:hover {
         color: #4d99d6;
@@ -370,6 +391,14 @@
         font-size: 16px;
         line-height: 22px; 
     }
+}
+
+.submit .submit-contacts__text--phone {
+    white-space: nowrap;
+}
+
+.submit .submit-contacts__text--email {
+    word-break: break-word;
 }
 
 .submit__contacts-text {

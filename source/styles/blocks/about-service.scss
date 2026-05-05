@@ -224,3 +224,9 @@
         padding: 0 3px;
     }
 }
+
+.button__wrapper.about__button-container {
+    @media (max-width: $mobile-max) {
+        border-radius: 21px;
+    }
+}

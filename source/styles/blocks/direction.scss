@@ -72,10 +72,9 @@ $direction-desktop-aside-inline: clamp(77px, 4.8vw + 28px, 97px);
    min-width: 0;
    margin-top: 101px;
    margin-right: 88px;
-   margin-bottom: 3px;
+   margin-bottom: 77px;
    margin-left: $direction-desktop-aside-inline;
    text-align: start;
-   gap: 156px;
 
     @media (max-width: $desktop-max) {
         margin-top: 105px;
@@ -139,6 +138,11 @@ $direction-desktop-aside-inline: clamp(77px, 4.8vw + 28px, 97px);
     font-variant: all-small-caps;
     color: $special-blue-darkest;
 
+    @media (min-width: $desktop-min) and (max-width: 1104px) {
+        font-size: 65px;
+        line-height: 45px;
+    }
+
     @media (max-width: $tablet-max) {
         font-size: clamp(3rem, 9vw + 2rem, 5.9375rem);
         line-height: 1.05;
@@ -184,6 +188,7 @@ $direction-desktop-aside-inline: clamp(77px, 4.8vw + 28px, 97px);
     grid-area: button;
     margin-left: $direction-desktop-aside-inline;
     margin-right: 88px;
+    margin-bottom: 72px;
     transform: translateX(8px);
 
     @media (max-width: $tablet-max) {
@@ -195,6 +200,7 @@ $direction-desktop-aside-inline: clamp(77px, 4.8vw + 28px, 97px);
         margin-right: 0;
         margin-inline: auto;
         margin-top: -102px;
+        margin-bottom: 0;
         justify-self: stretch;
         transform: none;
     }
