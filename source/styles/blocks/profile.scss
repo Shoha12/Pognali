@@ -72,6 +72,7 @@
     @media (max-width: $tablet-max) {
         grid-template-columns: minmax(0, 71%) minmax(0, 1fr);
         gap: 0;
+        overflow-x: clip;
     }
 
     @media (max-width: $mobile-max) {
@@ -115,6 +116,7 @@
 
     .profile__item {
         position: relative;
+        width: 100%;
 
         &::before {
             content: '';
@@ -125,6 +127,10 @@
             height: 1px;
             background-color: #e1e3e9;
             pointer-events: none;
+
+            @media (max-width: $tablet-max) {
+                right: -250px;
+            }
 
             @media (max-width: $mobile-max) {
                 left: 0;
@@ -143,6 +149,10 @@
             height: 1px;
             background-color: #e1e3e9;
             pointer-events: none;
+
+            @media (max-width: $tablet-max) {
+                right: -250px;
+            }
 
 
             @media (max-width: $mobile-max) {
@@ -223,6 +233,7 @@
     font-size: 28px;
     line-height: 28px;
     color: $special-white;
+    flex-shrink: 0;
     width: 73px;
     height: 72px;
     border-radius: 50%;
