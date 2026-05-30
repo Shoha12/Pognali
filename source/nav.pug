@@ -18,7 +18,8 @@ nav.nav
       ul.nav__list.list-reset
         each item in navArray
           li.nav__item
-            a.nav__link.link-reset(href=item.href)= item.text
+            a.nav__link.link-reset(href=item.href)
+              span(data-hover=item.text)= item.text
       .nav__contacts
         -
           contactsPhoneIcon = 'phone-mobile-icon'

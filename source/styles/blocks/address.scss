@@ -73,6 +73,7 @@
   border-radius: 50%;
   background-color: $basic-blue-darkest;
   position: relative;
+  flex-shrink: 0;
 
   &::before {
     content: '';
