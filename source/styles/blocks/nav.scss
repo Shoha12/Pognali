@@ -159,16 +159,36 @@
   }
 }
 
-.nav__item {
-    &:hover {
-      color: $hover-color;
-    }
+.nav__link {
+  display: inline-block;
+  vertical-align: top;
+  overflow: hidden;
+  padding: 0 4px;
+  height: 1em;
+  line-height: 1;
+  transition: opacity 0.3s ease;
 
-    &:active {
-      opacity: 0.3;
+  span {
+    position: relative;
+    display: inline-block;
+    transform: translate3d(0, 0, 0);
+    transition: transform 0.3s ease;
+
+    &::before {
+      position: absolute;
+      top: 100%;
+      content: attr(data-hover);
+      color: $hover-color;
+      transform: translate3d(0, 0, 0);
     }
   }
 
-.nav__link {
-  transition: color 0.3s ease, opacity 0.3s ease;
+  &:hover span,
+  &:focus-visible span {
+    transform: translateY(-100%);
+  }
+
+  &:active {
+    opacity: 0.3;
+  }
 }

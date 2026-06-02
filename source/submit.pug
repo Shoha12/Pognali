@@ -8,8 +8,10 @@ section.submit
                 p.submit__text
                     | Зарегистрируйтесь, это быстро и бесплатно!
                     br
-                    | Уже зарегистрированы? Тогда скорее&nbsp;
-                    a.submit__link.link-reset(href='#') авторизуйтесь.
+                    | Уже зарегистрированы? Тогда 
+                    span.submit__text-nowrap
+                        | скорее 
+                        a.submit__link.link-reset(href='#') авторизуйтесь.
             form.submit__form.form(action="#" novalidate)
                 input.submit__input(type="email" name="email" placeholder="E-mail" required autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false")
                 +buttonSubmit('Регистрация', 'submit__form__button-container')
